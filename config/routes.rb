@@ -1,4 +1,4 @@
-Voucehrdonor::Application.routes.draw do
+Voucherdonor::Application.routes.draw do
   resources :friends
   resources :coupons
   resources :authentications

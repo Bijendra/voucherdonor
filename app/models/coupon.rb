@@ -4,7 +4,7 @@ class Coupon
   
   field :user_id, type: String
   field :coupon_vendor, type: String
-  field :expire_at, type: Timestamp
+  field :expire_at, type: Time
   field :status, type: Integer
   field :used_by, type: String
   field :type, type: Integer
