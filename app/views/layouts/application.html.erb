@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Voucherdonor</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "underscore-min" %>
   <%= javascript_include_tag "application" %>
+  <%= render(:partial => "layouts/head_tags") %>
   <%= csrf_meta_tags %>
 </head>
 <body>
