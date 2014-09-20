@@ -1,3 +1,4 @@
+<%= render(:partial => "homes/templates") %>
 <% if(false) %>
 <center>
   <div class="sp100"></div>
@@ -10,7 +11,10 @@
 <div id="loading" style="display:none;">&nbsp;</div>
 <div class="main">
   <div class="sp10"></div>
-  <h1 class="lead m-null">Rishabh Tripathi</h1>
+  <h1 class="lead m-null">
+    Rishabh Tripathi  
+    <input type="button" class="btn btn-danger pull-right" onclick="addNewCoupon();" value="Add New Voucher"/>
+  </h1>
   <hr>
   <div class="fill-width">
     <div id="feed-area" class="p-10"></div>
@@ -18,7 +22,7 @@
     <div style="clear:both;"></div>
   </div>
 </div>
-<%= render(:partial => "homes/templates") %>
+
 <script type="text/javascript">
   var uid = "1";
   load();
