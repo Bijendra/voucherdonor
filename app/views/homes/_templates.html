@@ -7,7 +7,7 @@
 
 <script type="text/teamplate" id="individual_coupon">
 	<li><a href="javascript:void(0);" id="{{= id}}" ><img src="/assets/plain.png" alt="{{= id}}"><p>
-		Grab your coupon code from {{= vendor }} and use it before {{= exp_at }}
+		Grab your coupon code from {{= vendor }} and use it before <time class="timeago" datetime="{{= exp_at }}">{{= exp_at }}</time>
 	</p><h3>{{= vendor }} - {{= code }}</h3></a></li>
 </script>
 

@@ -125,7 +125,8 @@ function prepareCouponsView() {
 	for(var cpn=1;cpn <= coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null){
-		var variable = {id: couponObj.get("_id"), vendor: couponObj.get("coupon_vendor"), code: couponObj.get("code"), exp_at: couponObj.get("expire_at"), status: couponObj.get("status")}
+	    var date = $.timeago(couponObj.get("expire_at"))
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status")}
 		inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
 	}

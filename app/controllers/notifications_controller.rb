@@ -87,6 +87,15 @@ class NotificationsController < ApplicationController
     @updates.subscribe("user", "statuses", callback_fb_url, "random12345") if @updates.app_access_token.present?        
   end
 
+  def send_notification
+    place = "KFC"
+    @g = Koala::Facebook::API.new(Koala::Facebook::OAuth.new("179716845394813","bdfca7d1c57344d6deec30f95e70d8f0").get_app_access_token)
+    @g.put_connections("100002137135495", "notifications", template: "Checkout your friends discount coupon of #{place}", href: "http://localhost:3000")
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+  end
+
   def callback_fb    
     Koala::Facebook::RealtimeUpdates.meet_challenge(@params, "random12345")
   end

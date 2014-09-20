@@ -36,3 +36,4 @@
 //= require colorfinder-1.1
 //= require imagesloaded.pkgd.min
 //= require gridScrollFx
+//= require jquery.timeago
