@@ -24,7 +24,7 @@
       <div class="form-group">	
 	<div class="p-5 pull-left" style="padding-top:0px;"> 
 	  <div class="btn-group">
-	    <input type="hidden" id="vendor-id" />
+	    <input type="hidden" id="vendor-id" value=""/>
 	    <button type="button" class="btn btn-primary dropdown-toggle" style="width:140px;" data-toggle="dropdown" id="coupVendor"> <span id="vendor-name">Vendor</span><span class="caret"></span></button>
 	    <ul class="dropdown-menu" role="menu">
 	      <li><a href="javascript:void(0);" onclick="selectVendor(10);">Myntra</a></li>
@@ -34,10 +34,10 @@
 	    </ul>	
           </div>
 	</div>
-	<div class="p-5 pull-left" style="padding-top:0px;">
+	<div id="coupon-code-div" class="p-5 pull-left" style="padding-top:0px;">
 	  <input type="text" id="coupon-code" class="form-control" style="width:350px;" placeholder="Enter Coupon Code"/>
 	</div>
-	<div class="p-5 pull-left" style="padding-top:0px;">
+	<div id="coupon-exp-div" class="p-5 pull-left" style="padding-top:0px;">
 	  <input id="coupon-exp-date" type="text" class="form-control" placeholder="Expire On" style="width:140px;"/>
 	</div>
 	<div class="p-5 pull-left" style="padding-top:0px;">
