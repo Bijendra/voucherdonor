@@ -203,6 +203,10 @@
     border: 5px solid #ecf0f1;
 }
 
+.friendIcon img {
+    width: 110px;
+}
+
 .friendIcon .fui-cross-circle {
     position: absolute;
     right: -20px;
