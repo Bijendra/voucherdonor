@@ -209,3 +209,10 @@
     top: -20px;
     z-index: 10;
 }
+
+#grid p{
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    padding: 40px;
+}

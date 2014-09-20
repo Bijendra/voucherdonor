@@ -30,3 +30,9 @@
 //= require backbone-min
 //= require main
 //= require logic
+//= require modernizr.custom
+//= require masonry.pkgd.min
+//= require classie
+//= require colorfinder-1.1
+//= require imagesloaded.pkgd.min
+//= require gridScrollFx

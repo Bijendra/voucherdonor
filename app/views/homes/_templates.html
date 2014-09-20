@@ -5,3 +5,16 @@
   </div>
 </script>
 
+<script type="text/teamplate" id="individual_coupon">
+	<li><a href="javascript:void(0);" id="{{= id}}" ><img src="/assets/plain.png" alt="{{= id}}"><p>
+		Grab your coupon code from {{= vendor }} and use it before {{= exp_at }}
+	</p><h3>{{= vendor }} - {{= code }}</h3></a></li>
+</script>
+
+<script type="text/teamplate" id="coupon_display">
+	<section class="grid-wrap">
+		<ul class="grid swipe-right" id="grid">
+			{{= html }}
+		</ul>
+	</section>
+</script>
