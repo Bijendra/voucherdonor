@@ -182,21 +182,35 @@
 }
 
 #feed-area {
-    width: 60%;
+    width: 65%;
     float: left;
 }
 
 #friends-area {
-    width: 40%;
+    width: 35%;
+    height: 100%;
+    min-height: 500px;
     background: #fafafa;
     float: left;
 }
 
 .friendIcon {
-    width: 200px;
-    height: 200px;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin: 10px;
+    cursor: pointer;
+    border: 5px solid #ffffff;
 }
 
 .friendIcon img {
     
+}
+
+.friendIcon .fui-cross-circle {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    z-index: 10;
 }

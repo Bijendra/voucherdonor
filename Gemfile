@@ -4,6 +4,7 @@ gem 'rails', '3.2.14'
 gem "mongoid", ">= 3.0.3"
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'koala'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

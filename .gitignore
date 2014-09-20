@@ -1,3 +1,13 @@
+tmp/**/*
+
+*.log
+
+dump/**/*
+
+test/functional/*
+
+test/unit/*
+
 database.yml
 *.pid
 
@@ -9,6 +19,12 @@ database.yml
 *.exe
 *.o
 *.so
+
+tmp/**/*
+*.log
+dump/**/*
+test/functional/*
+test/unit/*
  
 # Packages #
 ############

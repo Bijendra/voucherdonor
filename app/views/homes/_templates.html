@@ -1,6 +1,7 @@
 <script type="text/template" id="userIcon">
-  <div class="friendIcon">
-    <img src="{{= pic }}"/>
+  <div class="friendIcon" onmouseover="ele_show('{{= id }}-del');" onmouseout="ele_hide('{{= id }}-del');">
+    <span id="{{= id }}-del" class="fui-cross-circle" style="display:none;" onclick="removeFriend('{{= id }}')"></span>
+    <img src="{{= pic_url }}"/>
   </div>
 </script>
 
