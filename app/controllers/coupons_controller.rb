@@ -1,4 +1,5 @@
 class CouponsController < ApplicationController
+  respond_to :html, :json
   # GET /coupons
   # GET /coupons.json
   def index

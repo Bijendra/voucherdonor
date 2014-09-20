@@ -1,0 +1,159 @@
+_.templateSettings = {
+    interpolate: /\{\{\=(.+?)\}\}/g,
+    evaluate: /\{\{(.+?)\}\}/g
+};
+
+var Coupon: Backbone.Model.extend({
+    url: function() {
+	var base = 'coupons';
+	if(this.isNew()) return base;
+	return base + (base.charAt(base.length - 1) == '/' ? '' : '/') + this.id;
+    }
+});
+var Friends: Backbone.Model.extend({
+    url: function() {
+	var base = 'friends';
+	if(this.isNew()) return base;
+	return base + (base.charAt(base.length - 1) == '/' ? '' : '/') + this.id;
+    }
+});
+
+Coupons: Backbone.Collection.extend({
+    model: Coupons,
+    url: function() {
+	base_url = '/coupons';
+	if(this.uid != null) 
+	    base_url += '?uid='+this.uid;
+	return base_url;
+    },
+    initialize: function(uid) {
+	this.uid = uid;
+    },
+    setUid: function(uid) {
+	this.uid = uid;
+    }
+});
+
+Friends: Backbone.Collection.extend({
+    model: ,
+	url: function() {
+	    base_url = '/folders';
+	    if(this.uid != null) 
+		base_url += '?uid='+this.uid;
+	    return base_url;
+	},
+	initialize: function(uid) {
+	    this.uid = uid;
+	},
+	setUid: function(uid) {
+	    this.uid = uid;
+	}
+    })	    	    
+};	    
+
+Code.Logic.load = function() {
+    ele_show("loading");
+    Code.Var.myContents = new Code.Def.Collection.Contents(uid);
+    Code.Var.myContents.setUid(uid);
+    Code.Var.myContents.fetch({
+	success: function() { 
+	    Code.Var.myFolders = new Code.Def.Collection.Folders(uid);
+	    Code.Var.myFolders.setUid(uid);
+	    Code.Var.myFolders.fetch({
+		success: function() { 		    
+		    Code.Logic.loadSuccess()
+		},         
+		error: function() {
+		    Code.Logic.loadFailure();
+		}
+	    });
+	},         
+	error: function() {
+	    Code.Logic.loadFailure();
+	}
+    });
+};
+
+Code.Logic.loadSuccess = function() {        
+    Code.Logic.updateMyContentHash();
+    Code.Logic.updateFolderHash();
+    Code.Logic.prepareFileList();
+    ele_hide("loading");
+    Code.Var.openFileId = lastOpenFile;
+    Code.Event.Onclick();
+    Code.Event.Scheduled();
+    Code.Event.Keyboard();
+    if(objDef(Code.Var.openFileId)) {
+	Code.Logic.openFile(Code.Var.openFileId);
+    } else {
+	Code.Logic.initEditor("code-editor", "text/plain", "");
+	Code.Logic.nofileState();
+    }
+    // Setting User Preferences
+    Code.Logic.setFontSize(ele('size-pref').value, false);
+    var curTheme = ele('theme-pref').value;
+    if(curTheme == 0) {
+	Code.Logic.setLightTheme(false);
+    } else {
+	Code.Logic.setDarkTheme(true);
+    }
+};
+
+Code.Logic.loadFailure = function() {
+    alert("error in loading your files");    
+};
+
+Code.Logic.nofileState = function() {
+    var autonote = _.template($("#howtoNoteTemp").html(), {});	
+    Code.Logic.addNewNote("How To Use","",autonote);
+}
+
+Code.Logic.updateMyContentHash = function() {
+    Code.Var.templateHash = {};    
+    Code.Var.myTemplates = [];
+    Code.Var.alTemplateCat = {};
+    Code.Var.myContentHash = {};    
+    if(Code.Var.myContents.length > 0) {	
+	Code.Var.myContents.each(function(obj) {
+	    if(obj.get("template") == 10) {				
+		Code.Var.templateHash[obj.get('id')] = obj;
+		if(objDef(obj.get('template_cat'))) {
+		    if(!(Code.Var.alTemplateCat.hasOwnProperty(obj.get('template_cat')))) {
+			Code.Var.alTemplateCat[obj.get('template_cat')] = [];
+		    }
+		    Code.Var.alTemplateCat[obj.get('template_cat')].push(obj);
+		}
+	    } else if(obj.get("template") == 20) {
+		Code.Var.templateHash[obj.get('id')] = obj;		
+		Code.Var.myTemplates.push(obj);
+	    } else {	    
+		Code.Var.myContentHash[obj.get('id')] = obj;
+	    }
+	});    
+    }
+};
+
+Code.Logic.updateFolderHash = function() {
+    Code.Var.myFolderHash = {};
+    if(Code.Var.myFolders.length > 0) {	
+	Code.Var.myFolders.each(function(obj) {
+	    Code.Var.myFolderHash[obj.get("id")] = obj;
+	});    
+    }    
+};
+
+Code.Logic.prepareFileList = function() {
+    var allFileIds = get_hash_keys(Code.Var.myContentHash);
+    var html = "";        
+    if(objDef(allFileIds) && (allFileIds.length > 0)) {
+	allFileIds = allFileIds.sort(function(a,b) { return b-a });
+	for(var i=0;i<10;i++) {
+	    var fileObj = Code.Var.myContentHash[allFileIds[i]];
+	    if(objDef(fileObj)) {
+		var variable = { file_id: fileObj.get("id"), file_name: fileObj.get("name") };
+		html += _.template($("#fileLinkTemp").html(), variable);	
+	    }
+	}
+    }
+    ele("file-list").innerHTML = html;
+};

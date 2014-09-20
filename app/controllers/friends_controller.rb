@@ -1,4 +1,5 @@
 class FriendsController < ApplicationController
+  respond_to :html, :json
   # GET /friends
   # GET /friends.json
   def index
