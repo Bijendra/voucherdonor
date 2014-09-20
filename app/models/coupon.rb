@@ -8,4 +8,6 @@ class Coupon
   field :status, type: Integer
   field :used_by, type: String
   field :type, type: Integer
+  field :code, type: String
+  
 end

@@ -1,3 +1,5 @@
+Backbone.Model.prototype.idAttribute = "_id";
+
 _.templateSettings = {
     interpolate: /\{\{\=(.+?)\}\}/g,
     evaluate: /\{\{(.+?)\}\}/g
@@ -105,10 +107,9 @@ function prepareFriendsView() {
 	var html = "";
 	for(var i=0;i<friendsIds.length;i++) {
 	    var friendObj = userFriendsHash[friendsIds[i]];
-	    if(friendsIds != null) {
+	    if((friendsIds != null) && (friendObj != null)) {
 		var pic_url = "http://graph.facebook.com/"+friendObj.get("friend_fb_id")+"/picture?width=125&height=125";
-		console.log(pic_url);
-		var variable = { pic: pic_url};
+		var variable = { id : friendObj.get("_id"), pic_url : pic_url };
 		html += _.template($("#userIcon").html(), variable);		    
 	    }
 	}
@@ -117,5 +118,22 @@ function prepareFriendsView() {
 }
 
 function prepareCouponsView() {
+    
+}
+
+function removeFriend(id) {
+    friendObj = userFriendsHash[id];
+    friendObj.set({status: -100});
+    userFriendsHash[id] = null;
+    prepareFriendsView();
+    friendObj.save({}, {
+	success: function(response) {
+	}, 
+	error: function(response) {
+	}
+    });
+}
+
+function addNewCoupon() {
     
 }
