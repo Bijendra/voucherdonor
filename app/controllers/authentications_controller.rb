@@ -23,6 +23,7 @@ class AuthenticationsController < ApplicationController
       token = ""
       token = omniauth['credentials']['token'] if(omniauth['credentials'].present? && omniauth['credentials']['token'].present?)
       authentication.update_attribute(:access_token, token) 
+      
       authentication.user = Authentication.assign_social_data_to_user(authentication.user, omniauth, true)
       authentication.user.save
       sign_in_and_redirect(:user, authentication.user)      
@@ -42,14 +43,23 @@ class AuthenticationsController < ApplicationController
       else
       auth = user.apply_omniauth(omniauth)
       end
+      
+      @graph = Koala::Facebook::API.new(auth.access_token)
+      profile = @graph.get_object("me")
+      friends = @graph.get_connections("me", "friends")
+      friends = friends.to_a if friends.present?
+
+      friends.each do |friend|
+        Friend.find_or_create_by(friend_fb_id: friend["id"], user_id: omniauth['uid'], status: Friend::STATUS_NAMES[0])
+      end  
       user = Authentication.assign_social_data_to_user(user, omniauth, true)
       if(user.save)
         auth.save
-        redirect_to "localhost:3000"
+        redirect_to root_path
         # sign_in_and_redirect(:user, user)
       else
         session[:omniauth] = omniauth.except('extra')
-        redirect_to new_user_registration_url
+        redirect_to root_path # new_user_registration_url
       end
     end
   end

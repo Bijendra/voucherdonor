@@ -31,8 +31,12 @@ class User
   field :last_name, :type => String, :default => ""
   field :profile_pic_url, :type => String, :default => ""
   field :facebook_url, :type => String, :default => ""
-  
+  # field :fb_raw_info, :type => String
+  field :location, :type => String
+  field :facebook_uid , :type => String
+
   has_many :authentications
+  has_many :coupons
   ## Confirmable
   # field :confirmation_token,   :type => String
   field :confirmed_at,         :type => Time
@@ -44,6 +48,9 @@ class User
   # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
   # field :locked_at,       :type => Time
   
+  def full_name
+    return "#{first_name} #{last_name}"
+  end
 
   def apply_omniauth(omniauth)
     token = ""

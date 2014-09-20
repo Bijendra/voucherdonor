@@ -84,10 +84,7 @@ class NotificationsController < ApplicationController
   def register_realtime_updates
     @updates = Koala::Facebook::RealtimeUpdates.new(:app_id => '179716845394813', :secret => 'bdfca7d1c57344d6deec30f95e70d8f0')                    
     # Rails.logger.info(callback_fb_url) 
-    binding.pry
-    @updates.subscribe("user", "statuses", callback_fb_url, "random12345") if @updates.app_access_token.present?    
-    binding.pry
-    
+    @updates.subscribe("user", "statuses", callback_fb_url, "random12345") if @updates.app_access_token.present?        
   end
 
   def send_notification
@@ -101,6 +98,14 @@ class NotificationsController < ApplicationController
 
   def callback_fb    
     Koala::Facebook::RealtimeUpdates.meet_challenge(@params, "random12345")
+  end
+
+  def receive_update
+    if @oauth.validate_update(request.body, headers)
+      # process update from request.body
+    else
+      render text: "not authorized", status: 401
+    end
   end
 
   def test

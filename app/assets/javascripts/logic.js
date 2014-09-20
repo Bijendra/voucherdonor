@@ -17,6 +17,7 @@ var Coupon = Backbone.Model.extend({
 	return base + (base.charAt(base.length - 1) == '/' ? '' : '/') + this.id;
     }
 });
+
 var Friend = Backbone.Model.extend({
     url: function() {
 	var base = 'friends';
@@ -118,7 +119,23 @@ function prepareFriendsView() {
 }
 
 function prepareCouponsView() {
-    
+    var coupons = get_hash_keys(userCouponsHash);
+    if (coupons.length > 0){
+	var inner_html = "";
+	for(var cpn=1;cpn <= coupons.length; cpn++){
+	    var couponObj = userCouponsHash[coupons[cpn]];
+	    if (couponObj != null){
+		var variable = {id: couponObj.get("_id"), vendor: couponObj.get("coupon_vendor"), code: couponObj.get("code"), exp_at: couponObj.get("expire_at"), status: couponObj.get("status")}
+		inner_html += _.template($("#individual_coupon").html(), variable);		    
+	    }
+	}
+	variable = {html: inner_html}
+	html = _.template($("#coupon_display").html(), variable)		
+    }
+    ele("coupon-code-feed").innerHTML = html;
+    new GridScrollFx( document.getElementById( 'grid' ), {
+	viewportFactor : 0.4
+    } );    
 }
 
 function removeFriend(id) {
@@ -134,6 +151,37 @@ function removeFriend(id) {
     });
 }
 
+function selectVendor(id) {
+    ele("vendor-name").innerHTML = getVendorName(id);
+    ele("vendor-id").value = id;
+}
+
+function getVendorName(id) {
+    var vendor = {
+	10: "Myntra",
+	20: "Snapdeal",
+	30: "Cafe Coffee Day",
+	40: "KFC"
+    }
+    return vendor[id]
+}
+
 function addNewCoupon() {
-    
+    var coupon = new Coupon();
+    coupon.set({
+	coupon_vendor: ele("vendor-id").value,
+	expire_at: ele("coupon-exp-date").value,
+	code: ele("coupon-code").value
+    });    
+    coupon.save({}, {
+	success: function(model, response) {
+	    ele("coupon-exp-date").value = "";
+	    ele("coupon-code").value = "";
+	    userCoupons.push(model);
+	    updateCoupons();
+	    prepareCouponsView();
+	}, 
+	error: function(response) {
+	}
+    });
 }
