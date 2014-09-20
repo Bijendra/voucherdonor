@@ -25,7 +25,8 @@ class CouponsController < ApplicationController
   # GET /coupons/new
   # GET /coupons/new.json
   def new
-    @coupon = Coupon.new
+    user = User.last
+    @coupon = user.coupons.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +42,8 @@ class CouponsController < ApplicationController
   # POST /coupons
   # POST /coupons.json
   def create
-    @coupon = Coupon.new(params[:coupon])
+    user = User.last
+    @coupon = user.coupons.new(params[:coupon])
 
     respond_to do |format|
       if @coupon.save

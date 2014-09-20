@@ -33,6 +33,7 @@ class User
   field :facebook_url, :type => String, :default => ""
   
   has_many :authentications
+  has_many :coupons
   ## Confirmable
   # field :confirmation_token,   :type => String
   field :confirmed_at,         :type => Time
