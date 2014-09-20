@@ -1,7 +1,7 @@
 class Coupon	
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+
   field :user_id, type: String
   field :coupon_vendor, type: String
   field :expire_at, type: Time
