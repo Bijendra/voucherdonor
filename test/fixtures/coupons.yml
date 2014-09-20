@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: MyString
+  coupon_vendor: MyString
+  expire_at: 2014-09-20 19:07:21
+  status: 1
+  used_by: MyString
+  type: 1
+
+two:
+  user_id: MyString
+  coupon_vendor: MyString
+  expire_at: 2014-09-20 19:07:21
+  status: 1
+  used_by: MyString
+  type: 1

@@ -8,6 +8,7 @@ gem 'omniauth-facebook'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'pry'
 # gem 'sqlite3'
 
 
@@ -24,7 +25,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'omniauth-facebook'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

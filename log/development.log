@@ -1,0 +1,693 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-20 18:57:46 +0530
+Processing by HomesController#index as HTML
+  Rendered homes/index.html within layouts/application (1.8ms)
+Warning. Error encountered while saving cache /home/ashish/voucherdonor/tmp/cache/sass/7bbe1bba924b983778e24a67597d8f6c5cf00d20/authentications.css.scssc: can't dump anonymous class #<Class:0x00000002c52d60>
+Compiled authentications.css  (18ms)  (pid 3372)
+Warning. Error encountered while saving cache /home/ashish/voucherdonor/tmp/cache/sass/7bbe1bba924b983778e24a67597d8f6c5cf00d20/scaffolds.css.scssc: can't dump anonymous class #<Class:0x00000002c52d60>
+Compiled scaffolds.css  (7ms)  (pid 3372)
+Compiled application.css  (51ms)  (pid 3372)
+Compiled jquery.js  (2ms)  (pid 3372)
+Compiled jquery_ujs.js  (0ms)  (pid 3372)
+Compiled authentications.js  (628ms)  (pid 3372)
+Compiled application.js  (1485ms)  (pid 3372)
+Completed 200 OK in 1822ms (Views: 1821.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /bootstrap.min.css - 200 OK (6ms)
+
+
+Started GET "/assets/authentications.css?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /authentications.css - 200 OK (1ms)
+
+
+Started GET "/assets/flat-ui.css?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /flat-ui.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /scaffolds.css - 200 OK (1ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /homes.css - 200 OK (1ms)
+
+
+Started GET "/assets/authentications.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /authentications.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /application.css - 200 OK (9ms)
+
+
+Started GET "/assets/flat-ui.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /flat-ui.js - 200 OK (2ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /main.css - 200 OK (1ms)
+
+
+Started GET "/assets/flat-ui.min.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:48 +0530
+Served asset /flat-ui.min.js - 200 OK (2ms)
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:49 +0530
+Served asset /html5shiv.js - 200 OK (5ms)
+
+
+Started GET "/assets/respond.min.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:49 +0530
+Served asset /respond.min.js - 200 OK (1ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:49 +0530
+Served asset /main.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:49 +0530
+Served asset /jquery.min.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:49 +0530
+Served asset /application.js - 200 OK (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:49 +0530
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-20 18:57:49 +0530
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Processing by HomesController#index as HTML
+  Rendered homes/index.html within layouts/application (0.0ms)
+Warning. Error encountered while saving cache /home/ashish/voucherdonor/tmp/cache/sass/7bbe1bba924b983778e24a67597d8f6c5cf00d20/coupons.css.scssc: can't dump anonymous class #<Class:0x00000002c52d60>
+Compiled coupons.css  (1ms)  (pid 3372)
+Compiled application.css  (7ms)  (pid 3372)
+Compiled coupons.js  (99ms)  (pid 3372)
+Compiled application.js  (107ms)  (pid 3372)
+Completed 200 OK in 194ms (Views: 193.6ms)
+
+
+Started GET "/assets/coupons.css?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /coupons.css - 200 OK (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/coupons.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /coupons.js - 200 OK (18ms)
+
+
+Started GET "/assets/authentications.css?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /authentications.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/flat-ui.css?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /flat-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /homes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flat-ui.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /flat-ui.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/authentications.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /authentications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flat-ui.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /flat-ui.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /html5shiv.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/respond.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /respond.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-20 19:10:16 +0530
+Served asset /application.js - 304 Not Modified (11ms)
+
+
+Started GET "/community" for 127.0.0.1 at 2014-09-20 19:10:18 +0530
+
+ActionController::RoutingError (No route matches [GET] "/community"):
+  actionpack (3.2.14) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.14) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.14) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.14) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.14) lib/rails/engine.rb:484:in `call'
+  railties (3.2.14) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.14) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ashish/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ashish/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ashish/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/coupons" for 127.0.0.1 at 2014-09-20 19:10:22 +0530
+
+ActionController::RoutingError (uninitialized constant Coupon::Timestamp):
+  app/models/coupon.rb:7:in `<class:Coupon>'
+  app/models/coupon.rb:1:in `<top (required)>'
+  app/controllers/coupons_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/coupons" for 127.0.0.1 at 2014-09-20 19:10:38 +0530
+
+ActionController::RoutingError (uninitialized constant Coupon::Timestamp):
+  app/models/coupon.rb:7:in `<class:Coupon>'
+  app/models/coupon.rb:1:in `<top (required)>'
+  app/controllers/coupons_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/coupons/new" for 127.0.0.1 at 2014-09-20 19:10:59 +0530
+Processing by CouponsController#new as HTML
+  Rendered coupons/_form.html.erb (7.5ms)
+  Rendered coupons/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%= form_for(@coupon) do |f| %>
+    2:   <% if @coupon.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
+  app/views/coupons/_form.html.erb:1:in `_app_views_coupons__form_html_erb__161014450583547311_69818689191040'
+  app/views/coupons/new.html.erb:3:in `_app_views_coupons_new_html_erb__3196739589132565469_69818687153760'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (20.4ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (28.2ms)
+
+
+Started GET "/coupon/new" for 127.0.0.1 at 2014-09-20 19:11:12 +0530
+
+ActionController::RoutingError (No route matches [GET] "/coupon/new"):
+  actionpack (3.2.14) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.14) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.14) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.14) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.14) lib/rails/engine.rb:484:in `call'
+  railties (3.2.14) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.14) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ashish/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ashish/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ashish/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/coupons" for 127.0.0.1 at 2014-09-20 19:14:17 +0530
+
+ActionController::RoutingError (uninitialized constant Coupon::Timestamp):
+  app/models/coupon.rb:7:in `<class:Coupon>'
+  app/models/coupon.rb:1:in `<top (required)>'
+  app/controllers/coupons_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/coupons" for 127.0.0.1 at 2014-09-20 19:16:23 +0530
+
+ActionController::RoutingError (uninitialized constant Coupon::Timestamp):
+  app/models/coupon.rb:7:in `<class:Coupon>'
+  app/models/coupon.rb:1:in `<top (required)>'
+  app/controllers/coupons_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/coupons" for 127.0.0.1 at 2014-09-20 19:16:29 +0530
+Processing by CouponsController#index as HTML
+  Rendered coupons/index.html.erb within layouts/application (25.8ms)
+Completed 500 Internal Server Error in 28ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    13:     <th></th>
+    14:   </tr>
+    15: 
+    16: <% @coupons.each do |coupon| %>
+    17:   <tr>
+    18:     <td><%= coupon.user_id %></td>
+    19:     <td><%= coupon.coupon_vendor %></td>
+  app/views/coupons/index.html.erb:16:in `_app_views_coupons_index_html_erb___499988272747852111_24525600'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.5ms)
+
+
+Started GET "/coupons" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Processing by CouponsController#index as HTML
+  Rendered coupons/index.html.erb within layouts/application (2.0ms)
+Compiled application.css  (1ms)  (pid 4217)
+Compiled application.js  (3ms)  (pid 4217)
+Completed 200 OK in 86ms (Views: 86.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/authentications.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /authentications.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /bootstrap.min.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /homes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/flat-ui.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /flat-ui.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /main.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/authentications.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /authentications.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/flat-ui.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /flat-ui.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/flat-ui.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /flat-ui.min.js - 304 Not Modified (27ms)
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /html5shiv.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /jquery.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /main.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/respond.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /respond.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /application.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/fonts/lato/lato-bold.woff" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /fonts/lato/lato-bold.woff - 200 OK (19ms)
+
+
+Started GET "/assets/fonts/lato/lato-regular.woff" for 127.0.0.1 at 2014-09-20 19:18:20 +0530
+Served asset /fonts/lato/lato-regular.woff - 200 OK (10ms)
+
+
+Started GET "/coupons" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Processing by CouponsController#index as HTML
+  Rendered coupons/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 12.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /bootstrap.min.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/authentications.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /authentications.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /homes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flat-ui.css?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /flat-ui.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/authentications.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /authentications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flat-ui.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /flat-ui.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/flat-ui.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /flat-ui.min.js - 304 Not Modified (30ms)
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /html5shiv.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/respond.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /respond.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2014-09-20 19:18:25 +0530
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/coupons/new" for 127.0.0.1 at 2014-09-20 19:18:28 +0530
+Processing by CouponsController#new as HTML
+  Rendered coupons/_form.html.erb (1.5ms)
+  Rendered coupons/new.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%= form_for(@coupon) do |f| %>
+    2:   <% if @coupon.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
+  app/views/coupons/_form.html.erb:1:in `_app_views_coupons__form_html_erb__2144865497431640334_69962906380060'
+  app/views/coupons/new.html.erb:3:in `_app_views_coupons_new_html_erb___2726445759967557470_32677140'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.1ms)
+
+
+Started GET "/coupons/new" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Processing by CouponsController#new as HTML
+  Rendered coupons/_form.html.erb (1.0ms)
+  Rendered coupons/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 12ms (Views: 11.9ms)
+
+
+Started GET "/assets/authentications.css?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /authentications.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/flat-ui.css?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /flat-ui.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /homes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/flat-ui.js?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /flat-ui.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/authentications.js?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /authentications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flat-ui.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /flat-ui.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /html5shiv.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/respond.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /respond.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-20 19:21:05 +0530
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/coupons/new" for 127.0.0.1 at 2014-09-20 19:21:46 +0530
+Processing by CouponsController#new as HTML
+  Rendered coupons/_form.html.erb (1.6ms)
+  Rendered coupons/new.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%= form_for(@coupon) do |f| %>
+    2:   <% if @coupon.present? && @coupon.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
+  app/views/coupons/_form.html.erb:1:in `_app_views_coupons__form_html_erb__2144865497431640334_69962769702980'
+  app/views/coupons/new.html.erb:3:in `_app_views_coupons_new_html_erb___2726445759967557470_32677140'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (23.3ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (29.3ms)
+
+
+Started GET "/coupons/new" for 127.0.0.1 at 2014-09-20 19:23:06 +0530
+Processing by CouponsController#new as HTML
+  Rendered coupons/_form.html.erb (1.7ms)
+  Rendered coupons/new.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%= form_for(@coupon) do |f| %>
+    2:   <% if @coupon.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
+  app/views/coupons/_form.html.erb:1:in `_app_views_coupons__form_html_erb__2144865497431640334_28785320'
+  app/views/coupons/new.html.erb:3:in `_app_views_coupons_new_html_erb___2726445759967557470_32677140'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/coupons/" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Processing by CouponsController#index as HTML
+  Rendered coupons/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 14ms (Views: 13.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /application.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/authentications.css?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /authentications.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /homes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flat-ui.css?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /flat-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /bootstrap.min.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/authentications.js?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /authentications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flat-ui.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /flat-ui.min.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /html5shiv.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flat-ui.js?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /flat-ui.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/respond.min.js?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /respond.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-20 19:23:13 +0530
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/coupons/new" for 127.0.0.1 at 2014-09-20 19:23:17 +0530
+Processing by CouponsController#new as HTML
+  Rendered coupons/_form.html.erb (0.7ms)
+  Rendered coupons/new.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 3ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%= form_for(@coupon) do |f| %>
+    2:   <% if @coupon.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
+  app/views/coupons/_form.html.erb:1:in `_app_views_coupons__form_html_erb__2144865497431640334_28785320'
+  app/views/coupons/new.html.erb:3:in `_app_views_coupons_new_html_erb___2726445759967557470_32677140'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.3ms)
+
+
+Started GET "/coupons/new" for 127.0.0.1 at 2014-09-20 19:23:57 +0530
+Processing by CouponsController#new as HTML
+  Rendered coupons/_form.html.erb (1.9ms)
+  Rendered coupons/new.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%= form_for(@coupon) do |f| %>
+    2:   <div class="field">
+    3:     <%= f.label :user_id %><br />
+    4:     <%= f.text_field :user_id %>
+  app/views/coupons/_form.html.erb:1:in `_app_views_coupons__form_html_erb__2144865497431640334_69962769958840'
+  app/views/coupons/new.html.erb:3:in `_app_views_coupons_new_html_erb___2726445759967557470_32677140'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.1ms)
+
+
+Started GET "/coupons/new" for 127.0.0.1 at 2014-09-20 19:24:43 +0530
+
+ActionController::RoutingError (uninitialized constant Coupon::Timestamp):
+  app/models/coupon.rb:7:in `<class:Coupon>'
+  app/models/coupon.rb:1:in `<top (required)>'
+  app/controllers/coupons_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/ashish/.rvm/gems/ruby-1.9.3-p194@rails326/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
