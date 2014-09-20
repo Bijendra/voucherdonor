@@ -13,7 +13,7 @@
 }
 
 .js .grid {
-	background: url(../img/loading.gif) no-repeat 50% 100px;
+        background: url(/assets/loading.gif) no-repeat 50% 100px;
 }
 
 .js .grid.loaded {
@@ -74,7 +74,7 @@
 
 /* Curtain element */
 .grid .curtain {
-	position: absolute;
+    position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 100;
@@ -130,7 +130,7 @@
 	margin: 0;
 	padding: 20px;
 	width: 100%;
-	background: #2E3444;
+	background: #3498db;
 	color: #D3EEE2;
 	text-align: right;
 	text-transform: uppercase;
@@ -164,7 +164,7 @@
 
 .grid li.shown:hover > a::before {
 	border-width: 14px;
-	border-color: #2E3444;
+	border-color: #5ac8fb;
 }
 
 /* Animations */
