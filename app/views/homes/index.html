@@ -1,5 +1,5 @@
 <%= render(:partial => "homes/templates") %>
-<% if(false) %>
+<% if true %>
 <center>
   <div class="sp100"></div>
   <div class="sp30"></div>
@@ -10,14 +10,37 @@
 <% end %>
 <div id="loading" style="display:none;">&nbsp;</div>
 <div class="main">
-  <div class="sp10"></div>
-  <h1 class="lead m-null">
-    Rishabh Tripathi  
-    <input type="button" class="btn btn-danger pull-right" onclick="addNewCoupon();" value="Add New Voucher"/>
-  </h1>
+  <div class="sp20"></div>
+  <h1 class="lead" style="margin:0px;">Rishabh Tripathi</h1>
   <hr>
-  <div class="fill-width">
-    <div id="feed-area" class="p-10"></div>
+  <div class="fill-width">    
+    <div id="feed-area">
+      <div class="form-group">	
+	<div class="p-5 pull-left" style="padding-top:0px;"> 
+	  <div class="btn-group">
+	    <input type="hidden" id="vendor-id" />
+	    <button type="button" class="btn btn-primary dropdown-toggle" style="width:140px;" data-toggle="dropdown" id="coupVendor"> <span id="vendor-name">Vendor</span><span class="caret"></span></button>
+	    <ul class="dropdown-menu" role="menu">
+	      <li><a href="javascript:void(0);" onclick="selectVendor(10);">Myntra</a></li>
+	      <li><a href="javascript:void(0);" onclick="selectVendor(20);">Snapdeal</a></li>
+	      <li><a href="javascript:void(0);" onclick="selectVendor(30);">Cafe Cofee Day</a></li>
+	      <li><a href="javascript:void(0);" onclick="selectVendor(40);">KFC</a></li>
+	    </ul>	
+          </div>
+	</div>
+	<div class="p-5 pull-left" style="padding-top:0px;">
+	  <input type="text" id="coupon-code" class="form-control" style="width:350px;" placeholder="Enter Coupon Code"/>
+	</div>
+	<div class="p-5 pull-left" style="padding-top:0px;">
+	  <input id="coupon-exp-date" type="text" class="form-control" placeholder="Expire On" style="width:140px;"/>
+	</div>
+	<div class="p-5 pull-left" style="padding-top:0px;">
+	  <input type="button" class="btn btn-lg btn-success" onclick="addNewCoupon();" value="Add New Coupon"/>
+	</div>
+	<div style="clear:both;"></div>
+      </div>
+      <hr>
+    </div>
     <div id="friends-area" class="p-10"></div>
     <div style="clear:both;"></div>
   </div>
@@ -26,4 +49,8 @@
 <script type="text/javascript">
   var uid = "1";
   load();
+  $("#coupon-exp-date").datepicker({
+  numberOfMonths: 2,
+  minDate: 0
+  });
 </script>

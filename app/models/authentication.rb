@@ -23,8 +23,22 @@ class Authentication
           user.profile_pic_url = omniauth['info']['image']
         end
         
+        
+
         if(omniauth['info']['urls']['Facebook'].present?)
           user.facebook_url = omniauth['info']['urls']['Facebook']
+        end
+
+        # if(omniauth["extra"].present? && omniauth['raw']['info'].present?)
+        #   user.fb_raw_info = omniauth["raw"]["info"]
+        # end
+
+        if(omniauth['info']['location'].present?)
+          user.location = omniauth['info']['location']
+        end
+        
+        if(omniauth["uid"].present?)
+          user.facebook_uid = omniauth["uid"]
         end
 
       end

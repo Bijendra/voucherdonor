@@ -151,6 +151,34 @@ function removeFriend(id) {
     });
 }
 
+function selectVendor(id) {
+    ele("vendor-name").innerHTML = getVendorName(id);
+    ele("vendor-id").value = id;
+}
+
+function getVendorName(id) {
+    var vendor = {
+	10: "Myntra",
+	20: "Snapdeal",
+	30: "Cafe Coffee Day",
+	40: "KFC"
+    }
+    return vendor[id]
+}
+
 function addNewCoupon() {
-    
+    var coupon = new Coupon();
+    coupon.set({
+	coupon_vendor: ele("vendor-id").value,
+	expire_at: ele("coupon-exp-date").value,
+	code: ele("coupon-code").value
+    });    
+    coupon.save({}, {
+	success: function(response) {
+	    ele("coupon-exp-date").value = "";
+	    ele("coupon-code").value = "";
+	}, 
+	error: function(response) {
+	}
+    });
 }
