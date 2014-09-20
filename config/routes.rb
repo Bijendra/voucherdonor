@@ -1,4 +1,8 @@
 Voucherdonor::Application.routes.draw do
+  root :to => "homes#index"
+
+  # match "/admin" => "", :as => :admin
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
