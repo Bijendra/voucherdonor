@@ -10,4 +10,16 @@ class Coupon
   field :type, type: Integer
   field :code, type: String
   
+  VENDOR_MYNTRA = 10
+  VENDOR_SNAPDEAL = 20
+  VENDOR_CCD = 30
+  VENDOR_KFC = 40
+
+  VENDOR_NAMES = {
+    VENDOR_MYNTRA => "Myntra",
+    VENDOR_SNAPDEAL => "Snapdeal",
+    VENDOR_CCD => "Cafe Coffee Day",
+    VENDOR_KFC => "KFC"
+  }
+
 end
