@@ -1,4 +1,7 @@
 Voucherdonor::Application.routes.draw do
+  resources :coupons
+
+
   resources :authentications
 
 
