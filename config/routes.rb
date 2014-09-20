@@ -24,6 +24,7 @@ Voucherdonor::Application.routes.draw do
   match '/create_real_time_subscription' => 'notifications#register_realtime_updates'
   match '/callback_url_facebook' => 'notifications#callback_fb', :as => 'callback_fb'
   match '/test' => 'notifications#test'
+  match '/send_notification' => 'notifications#send_notification'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
