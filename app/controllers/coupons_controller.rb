@@ -1,4 +1,6 @@
 class CouponsController < ApplicationController
+  before_filter :check_credential
+
   respond_to :html, :json
   # GET /coupons
   # GET /coupons.json

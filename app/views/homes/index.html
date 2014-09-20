@@ -2,7 +2,7 @@
 <center>
   <div class="sp100"></div>
   <div class="sp30"></div>
-  <!-- <h1 class="lead" style="font-size:60px;">I am #VoucherDonor</h1> -->
+  <h1 class="lead" style="font-size:60px;">I am #VoucherDonor</h1>
   <div class"sp50"></div>
   <a href="/auth/facebook"><input type="button" class="btn btn-lg btn-info" value="Start with Facebook" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-lg btn-success" value="Learn More" />
 </center>
@@ -54,7 +54,7 @@
 </div>
 
 <script type="text/javascript">
-  var uid = "1";
+  var uid = "<%= current_user.id %>";
   load();
   $("#coupon-exp-date").datepicker({
   numberOfMonths: 2,
