@@ -31,7 +31,10 @@ class User
   field :last_name, :type => String, :default => ""
   field :profile_pic_url, :type => String, :default => ""
   field :facebook_url, :type => String, :default => ""
-  
+  # field :fb_raw_info, :type => String
+  field :location, :type => String
+  field :facebook_uid , :type => String
+
   has_many :authentications
   ## Confirmable
   # field :confirmation_token,   :type => String
