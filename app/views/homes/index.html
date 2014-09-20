@@ -1,5 +1,4 @@
-<%= render(:partial => "homes/templates") %>
-<% if(false) %>
+<% if(!current_user.present?) %>
 <center>
   <div class="sp100"></div>
   <div class="sp30"></div>
@@ -7,14 +6,21 @@
   <div class"sp50"></div>
   <a href="/auth/facebook"><input type="button" class="btn btn-lg btn-info" value="Start with Facebook" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-lg btn-success" value="Learn More" />
 </center>
-<% end %>
+<% else %>
+<%= render(:partial => "homes/templates") %>
 <div id="loading" style="display:none;">&nbsp;</div>
 <div class="main">
   <div class="sp20"></div>
-  <h1 class="lead" style="margin:0px;">Rishabh Tripathi</h1>
-  <hr>
+  <h1 class="lead" style="margin:0px;"><%= current_user.full_name %>
+    <div class="pull-right">      
+      <a rel="nofollow" data-method="delete" href="/users/sign_out"><span class="fui-power"></span></a>
+    </div>
+  </h1>
+  <hr style="margin-bottom:0px;">
   <div class="fill-width">    
     <div id="feed-area">
+      <div class="sp20"></div>
+      <div class="sp5"></div>
       <div class="form-group">	
 	<div class="p-5 pull-left" style="padding-top:0px;"> 
 	  <div class="btn-group">
@@ -54,3 +60,4 @@
   minDate: 0
   });
 </script>
+<% end %>

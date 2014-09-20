@@ -189,7 +189,7 @@
 #friends-area {
     width: 35%;
     height: 100%;
-    background: #fafafa;
+    border-left: 1px solid #EEEEEE; 
     float: left;
 }
 
@@ -200,7 +200,7 @@
     float: left;
     margin: 10px;
     cursor: pointer;
-    border: 5px solid #ffffff;
+    border: 5px solid #ecf0f1;
 }
 
 .friendIcon .fui-cross-circle {

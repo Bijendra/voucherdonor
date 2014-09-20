@@ -45,11 +45,11 @@ class AuthenticationsController < ApplicationController
       user = Authentication.assign_social_data_to_user(user, omniauth, true)
       if(user.save)
         auth.save
-        redirect_to "localhost:3000"
+        redirect_to root_path
         # sign_in_and_redirect(:user, user)
       else
         session[:omniauth] = omniauth.except('extra')
-        redirect_to new_user_registration_url
+        redirect_to root_path # new_user_registration_url
       end
     end
   end

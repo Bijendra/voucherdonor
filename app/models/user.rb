@@ -44,6 +44,9 @@ class User
   # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
   # field :locked_at,       :type => Time
   
+  def full_name
+    return "#{first_name} #{last_name}"
+  end
 
   def apply_omniauth(omniauth)
     token = ""
