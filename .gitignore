@@ -9,7 +9,6 @@ test/functional/*
 test/unit/*
 
 database.yml
-Gemfile.lock
 *.pid
 
 # Compiled source #
@@ -20,6 +19,12 @@ Gemfile.lock
 *.exe
 *.o
 *.so
+
+tmp/**/*
+*.log
+dump/**/*
+test/functional/*
+test/unit/*
  
 # Packages #
 ############
@@ -49,3 +54,10 @@ Gemfile.lock
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+tmp/**/*
+*.log
+dump/**/*
+test/functional/*
+test/unit/*
+

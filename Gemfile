@@ -4,6 +4,7 @@ gem 'rails', '3.2.14'
 gem "mongoid", ">= 3.0.3"
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'koala'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -25,7 +26,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'devise', ">= 2.1.2"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
