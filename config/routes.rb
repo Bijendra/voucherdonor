@@ -1,6 +1,8 @@
 Voucherdonor::Application.routes.draw do
   devise_for :users
 
+  resources :friends
+  resources :coupons
   resources :authentications
 
 

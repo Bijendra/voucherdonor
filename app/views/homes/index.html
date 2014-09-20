@@ -1,3 +1,4 @@
+<% if(false) %>
 <center>
   <div class="sp100"></div>
   <div class="sp30"></div>
@@ -5,3 +6,20 @@
   <div class"sp50"></div>
   <a href="/auth/facebook"><input type="button" class="btn btn-lg btn-info" value="Start with Facebook" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-lg btn-success" value="Learn More" />
 </center>
+<% end %>
+<div id="loading" style="display:none;">&nbsp;</div>
+<div class="main">
+  <div class="sp10"></div>
+  <h1 class="lead m-null">Rishabh Tripathi</h1>
+  <hr>
+  <div class="fill-width">
+    <div id="feed-area" class="p-10"></div>
+    <div id="friends-area" class="p-10"></div>
+    <div style="clear:both;"></div>
+  </div>
+</div>
+<%= render(:partial => "homes/templates") %>
+<script type="text/javascript">
+  var uid = "1";
+  load();
+</script>
