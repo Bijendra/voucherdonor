@@ -15,7 +15,11 @@ Voucherdonor::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create_social_auth'
 
   devise_scope :user do
-    get "/login" => "devise/sessions#new"
+    get "/" => "devise/sessions#new"
+  end
+
+  devise_scope :user do
+    delete "/" => "devise/sessions#destroy"
   end
 
   match "/post_login" => "homes#post_login", :as => "post_login"
