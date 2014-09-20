@@ -10,6 +10,12 @@ Gemfile.lock
 *.exe
 *.o
 *.so
+
+tmp/**/*
+*.log
+dump/**/*
+test/functional/*
+test/unit/*
  
 # Packages #
 ############

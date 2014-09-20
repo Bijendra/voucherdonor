@@ -1,7 +1,6 @@
 Voucherdonor::Application.routes.draw do
+  resources :notifications
   resources :authentications
-
-
   root :to => "homes#index"
 
   # match "/admin" => "", :as => :admin
@@ -10,6 +9,11 @@ Voucherdonor::Application.routes.draw do
   match '/auth/failure' => 'authentications#third_party_auth'
   match '/auth/:provider/callback' => 'authentications#create_social_auth'
   
+  # Real time updates api
+  match '/create_real_time_subscription' => 'notifications#register_realtime_updates'
+  match '/callback_url_facebook' => 'notifications#callback_fb', :as => 'callback_fb'
+  match '/test' => 'notifications#test'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
