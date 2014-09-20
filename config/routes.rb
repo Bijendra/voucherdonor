@@ -1,4 +1,6 @@
 Voucherdonor::Application.routes.draw do
+  devise_for :users
+
   resources :authentications
 
 
@@ -9,6 +11,12 @@ Voucherdonor::Application.routes.draw do
   match '/auth/:provider' => 'authentications#create_social_auth', :as => "social_auth"
   match '/auth/failure' => 'authentications#third_party_auth'
   match '/auth/:provider/callback' => 'authentications#create_social_auth'
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+
+  match "/post_login" => "homes#post_login", :as => "post_login"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
