@@ -24,5 +24,15 @@ class Coupon
     VENDOR_CCD => "Cafe Coffee Day",
     VENDOR_KFC => "KFC"
   }
+  
+  def self.check_validity_of_coupons
+    @g = Koala::Facebook::API.new(Koala::Facebook::OAuth.new("179716845394813","bdfca7d1c57344d6deec30f95e70d8f0").get_app_access_token)
+    Coupon.all.each do |coupon|
+    #   coupon.expires
+      if (Date.today + 1).strftime("%Y-%m-%d") > coupon.expire_at.strftime("%Y-%m-%d")
+        @g.put_connections(coupon.user.facebook_uid, "notifications", template: "Checkout your friends discount coupon ", href: "http://localhost:3000")    
+      end  
+    end
+  end  
 
 end
