@@ -93,11 +93,27 @@ function updateCoupons() {
     }
 }
 
+function getFriendsCoupons(uid){
+	friendCouponsHash = {};
+	if(userCoupons.length > 0) {		
+		userCoupons.each(function(obj){
+			if (obj.get("fb_id") == uid){
+				friendCouponsHash[uid] = obj;
+			}
+		});
+	}
+	return friendCouponsHash;
+}
+
 function updateFriends() {
     if(userFriends.length > 0) {
 	userFriendsHash = {};
 	userFriends.each(function(obj) {
-	    userFriendsHash[obj.get("_id")] = obj;
+		f_data  = getFriendsCoupons(obj.get("friend_fb_id"));
+		console.log(f_data);
+		if (!jQuery.isEmptyObject(f_data)){
+	    	userFriendsHash[obj.get("_id")] = obj;
+	    }
 	});
     }
 }
