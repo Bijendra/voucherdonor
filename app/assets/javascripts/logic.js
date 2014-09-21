@@ -127,7 +127,7 @@ function prepareCouponsView() {
 	for(var cpn=1;cpn <= coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null){
-	    var date = $.timeago(couponObj.get("expire_at"))
+	    var date = getDate(couponObj.get("expire_at"));
 		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
 		inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
@@ -141,6 +141,10 @@ function prepareCouponsView() {
     } );    
 }
 
+function getDate(date){
+	return $.timeago(date).split(" ago")[0];
+}
+
 function getFriendCouponData(user_id){
 	var coupons = get_hash_keys(userCouponsHash);
     if (coupons.length > 0){
@@ -149,7 +153,29 @@ function getFriendCouponData(user_id){
 	for(var cpn=1;cpn <= coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null && couponObj.get("fb_id") == user_id){
-		    var date = $.timeago(couponObj.get("expire_at"))
+		    var date = getDate(couponObj.get("expire_at"));
+			var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+			inner_html += _.template($("#individual_coupon").html(), variable);		    
+	    }
+	}
+	variable = {html: inner_html}
+	html = _.template($("#coupon_display").html(), variable)		
+    }
+    ele("coupon-code-feed").innerHTML = html;
+    new GridScrollFx( document.getElementById( 'grid' ), {
+	viewportFactor : 0.4
+    } ); 
+}
+
+function getTypeCouponData(type){
+	var coupons = get_hash_keys(userCouponsHash);
+    if (coupons.length > 0){
+	var inner_html = "";
+	var html = "";
+	for(var cpn=1;cpn <= coupons.length; cpn++){
+	    var couponObj = userCouponsHash[coupons[cpn]];
+	    if (couponObj != null && couponObj.get("coupon_vendor") == type){
+		    var date = getDate(couponObj.get("expire_at"));
 			var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
 			inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
@@ -245,6 +271,20 @@ function updateCode(code){
 
 function showUserFeeds(obj){
 	user_id = obj.data("id");
-	$("#user_only_id").text(user_id);
+	$("#user_id_data").text(user_id);
+	$("#user_only_id .fui-cross-circle").show();
 	getFriendCouponData(user_id);
+}
+
+function removeFilter(){
+	$("#user_only_id .fui-cross-circle").hide();
+	$("#user_id_data").text("All Coupons");
+	prepareCouponsView();
+	$(".coupon-type").removeClass("btn-inverse").addClass("btn-info");
+}
+
+function addTypeFilter(type, obj){
+	getTypeCouponData(type);
+	$(".coupon-type").removeClass("btn-info").addClass("btn-inverse");
+	obj.removeClass("btn-inverse").addClass("btn-info");
 }
