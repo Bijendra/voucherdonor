@@ -13,7 +13,7 @@ class CouponsController < ApplicationController
     else
       friends_list = Friend.where(user_id: current_user.facebook_uid).map(&:friend_fb_id) if current_user.present?
       friends_list = friends_list + [current_user.facebook_uid] if current_user.present?
-      @coupons = current_user.present? ? Coupon.any_in(:fb_id => friends_list).where(status: Coupon::COUPON_ACTIVE) : Coupon.all
+      @coupons = current_user.present? ? Coupon.any_in(:fb_id => friends_list) : Coupon.all
     end
     @coupons = @coupons.sort{|a,b| a.expire_at <=> b.expire_at }
     respond_to do |format|
@@ -101,6 +101,7 @@ class CouponsController < ApplicationController
     if current_user.present? && params[:code].present?
       coupon = Coupon.where(code: params[:code]).first
       coupon.status = Coupon::COUPON_INACTIVE if coupon.present?
+      coupon.used_by = current_user.full_name if current_user.present?
       coupon.save if coupon.present?
       render :json => {"success"=>true}
     else      
