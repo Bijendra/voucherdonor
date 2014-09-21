@@ -97,6 +97,7 @@ class CouponsController < ApplicationController
     if current_user.present? && params[:code].present?
       coupon = Coupon.where(code: params[:code]).first
       coupon.status = Coupon::COUPON_INACTIVE if coupon.present?
+      coupon.used_by = current_user.full_name if current_user.present?
       coupon.save if coupon.present?
       render :json => {"success"=>true}
     else      

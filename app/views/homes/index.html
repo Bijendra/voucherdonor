@@ -55,8 +55,12 @@
 	<div style="clear:both;"></div>
 	<textarea id="coupon-desc" class="form-control fill-width" style="display:none;" placeholder="Add Description about your coupon code (optional)"></textarea>
       </div>
-      <hr>
-      <div id="coupon-code-feed"></div>
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+        <li id="show_active" class="active"><a href="javascript:showAvailableCoupons();">Available Coupons</a></li>
+        <li id="show_inactive"><a href="javascript:showUsedCoupons();">Used Coupons</a></li>
+      </ul>
+      <div id="coupon-code-feed" class="coupon-display"></div>
+      <div id="coupon-expored-code-feed" class="coupon-display" style="display: none;"></div>
     </div>
     <div id="friends-area" class="p-10">
       <div class="sp30"></div>

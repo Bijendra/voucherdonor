@@ -316,3 +316,17 @@ function addTypeFilter(type, obj){
 	$(".coupon-type").removeClass("btn-info").addClass("btn-inverse");
 	obj.removeClass("btn-inverse").addClass("btn-info");
 }
+
+function showAvailableCoupons(){
+	$(".coupon-display").hide();
+	$("#show_active").addClass("active");
+	$("#show_inactive").removeClass("active");
+	$("#coupon-code-feed").show();
+}
+
+function showUsedCoupons(){
+	$(".coupon-display").hide();
+	$("#show_active").removeClass("active");
+	$("#show_inactive").addClass("active");
+	$("#coupon-used-code-feed").show();	
+}
