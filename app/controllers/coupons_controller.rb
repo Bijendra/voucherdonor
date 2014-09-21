@@ -8,9 +8,9 @@ class CouponsController < ApplicationController
     if params[:uid].present? && params[:vid].present?
       friends_list = Friend.where(user_id: params[:uid]).map(&:friend_fb_id)
       friends_list = friends_list + [params[:uid]]
-      @coupons = Coupon.where(:fb_id.in => friends_list, coupon_vendor: params[:vid]).all
+      @coupons = Coupon.where(:fb_id.in => friends_list, coupon_vendor: params[:vid], status: Coupon::COUPON_ACTIVE).all
     else
-      friends_list = Friend.where(user_id: current_user.facebook_uid).map(&:friend_fb_id) if current_user.present?
+      friends_list = Friend.where(user_id: current_user.facebook_uid, status: Coupon::COUPON_ACTIVE).map(&:friend_fb_id) if current_user.present?
       friends_list = friends_list + [current_user.facebook_uid] if current_user.present?
       @coupons = current_user.present? ? Coupon.where(:fb_id.in => friends_list).all : Coupon.all
     end
@@ -89,6 +89,17 @@ class CouponsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to coupons_url }
       format.json { head :no_content }
+    end
+  end
+
+  def update_status
+    if current_user.present? && params[:code].present?
+      coupon = Coupon.where(code: params[:code]).first
+      coupon.status = Coupon::COUPON_INACTIVE if coupon.present?
+      coupon.save if coupon.present?
+      render :json => {"success"=>true}
+    else      
+      render :json => {"success"=>false}
     end
   end
 end

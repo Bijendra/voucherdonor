@@ -30,6 +30,8 @@ Voucherdonor::Application.routes.draw do
   match '/test' => 'notifications#test'
   match '/send_notification' => 'notifications#send_notification'
 
+  match '/update_code_status' => 'coupons#update_status', :as => 'update_code_status'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
