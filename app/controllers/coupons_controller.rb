@@ -13,7 +13,7 @@ class CouponsController < ApplicationController
     else
       friends_list = Friend.where(user_id: current_user.facebook_uid).map(&:friend_fb_id) if current_user.present?
       friends_list = friends_list + [current_user.facebook_uid] if current_user.present?
-      @coupons = current_user.present? ? Coupon.any_in(:fb_id => friends_list).where(status: Coupon::COUPON_ACTIVE) : Coupon.all
+      @coupons = current_user.present? ? Coupon.any_in(:fb_id => friends_list) : Coupon.all
     end
     respond_to do |format|
       format.html # index.html.erb

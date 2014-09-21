@@ -9,6 +9,8 @@ var userCoupons;
 var userFriends;
 var userCouponsHash = {};
 var userFriendsHash = {};
+var scrollAvailable = {};
+var scrollUsed = {};
 
 var Coupon = Backbone.Model.extend({
     url: function() {
@@ -86,10 +88,16 @@ var load = function() {
 
 function updateCoupons() {
     if(userCoupons.length > 0) {
-	userCouponsHash = {};
-	userCoupons.each(function(obj) {
-	    userCouponsHash[obj.get("_id")] = obj;
-	});
+		userCouponsHash = {};
+		userUsedCouponsHash = {};
+		userCoupons.each(function(obj) {
+			// console.log(obj.get("status"));
+		    if(obj.get("status") == 0){
+		    	userCouponsHash[obj.get("_id")] = obj;	
+		    } else {
+		    	userUsedCouponsHash[obj.get("_id")] = obj;	
+		    }	    
+		});
     }
 }
 
@@ -109,7 +117,7 @@ function updateFriends() {
     if(userFriends.length > 0) {
 	userFriendsHash = {};
 	userFriends.each(function(obj) {
-	    f_data  = getFriendsCoupons(obj.get("friend_fb_id"));
+	    f_data = getFriendsCoupons(obj.get("friend_fb_id"));
 	    if(!jQuery.isEmptyObject(f_data)){
 	    	userFriendsHash[obj.get("_id")] = obj;
 	    }
@@ -151,9 +159,36 @@ function prepareCouponsView() {
 	html = _.template($("#coupon_display").html(), variable)		
     }
     ele("coupon-code-feed").innerHTML = html;
-    new GridScrollFx( document.getElementById( 'grid' ), {
-	viewportFactor : 0.4
-    } );    
+    // if (!jQuery.isEmptyObject(scrollAvailable)){
+	    scrollAvailable = new GridScrollFx( document.getElementById( 'grid' ), {
+			viewportFactor : 0.4
+		} );    
+	// }
+}
+
+function prepareUsedCouponsView(){
+	var coupons = get_hash_keys(userUsedCouponsHash);
+    var html = "";
+    if (coupons.length > 0){
+	var inner_html = "";
+	var html = "";
+	for(var cpn=0;cpn < coupons.length; cpn++){
+	    var couponObj = userUsedCouponsHash[coupons[cpn]];
+	    if (couponObj != null){
+	    var date = getDate(couponObj.get("expire_at"));
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+		inner_html += _.template($("#individual_used_coupon").html(), variable);		    
+	    }
+	}
+	variable = {html: inner_html}
+	html = _.template($("#coupon_used_display").html(), variable)		
+    }
+    ele("coupon-used-code-feed").innerHTML = html;
+    // if (!jQuery.isEmptyObject(scrollUsed)){
+	    scrollUsed = new GridScrollFx( document.getElementById( 'grid_used' ), {
+			viewportFactor : 0.4
+		} );  
+	// }
 }
 
 function getDate(date){
@@ -322,6 +357,7 @@ function showAvailableCoupons(){
 	$("#show_active").addClass("active");
 	$("#show_inactive").removeClass("active");
 	$("#coupon-code-feed").show();
+	prepareCouponsView();
 }
 
 function showUsedCoupons(){
@@ -329,4 +365,5 @@ function showUsedCoupons(){
 	$("#show_active").removeClass("active");
 	$("#show_inactive").addClass("active");
 	$("#coupon-used-code-feed").show();	
+	prepareUsedCouponsView();
 }

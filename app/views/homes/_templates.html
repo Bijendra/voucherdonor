@@ -14,6 +14,23 @@
   </a></li>
 </script>
 
+<script type="text/teamplate" id="individual_used_coupon">
+  <li id="{{= code}}" class="coupon {{= user_id }} {{= vendor }}"><a href="javascript:void(0);" id="{{= id}}" ><img src="/assets/plain.png" alt="{{= id}}">
+      <p>
+		This coupon code from <label>{{= vendor }} </label> used by you.
+      </p>
+      <h3>{{= code }}</h3>
+  </a></li>
+</script>
+
+<script type="text/teamplate" id="coupon_used_display">
+  <section class="grid-wrap">
+    <ul class="grid swipe-right" id="grid_used">
+      {{= html }}
+    </ul>
+  </section>
+</script>
+
 <script type="text/teamplate" id="coupon_display">
   <section class="grid-wrap">
     <ul class="grid swipe-right" id="grid">
