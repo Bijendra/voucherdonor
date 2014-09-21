@@ -5,7 +5,7 @@ class Coupon
   #field :user_id, type: String
   field :coupon_vendor, type: String
   field :expire_at, type: Time
-  field :status, type: Integer
+  field :status, type: Integer, default: 0
   field :used_by, type: String
   field :type, type: Integer
   field :code, type: String
@@ -25,6 +25,14 @@ class Coupon
     VENDOR_SNAPDEAL => "Snapdeal",
     VENDOR_CCD => "Cafe Coffee Day",
     VENDOR_KFC => "KFC"
+  }
+
+  COUPON_ACTIVE = 0
+  COUPON_INACTIVE = -100
+
+  COUPON_STATUS = {
+  	COUPON_ACTIVE => "Active Coupon",
+  	COUPON_INACTIVE => "Inactive Coupon"
   }
   
   def self.check_validity_of_coupons

@@ -110,10 +110,9 @@ function updateFriends() {
 	userFriendsHash = {};
 	userFriends.each(function(obj) {
 		f_data  = getFriendsCoupons(obj.get("friend_fb_id"));
-		console.log(f_data);
-		if (!jQuery.isEmptyObject(f_data)){
+		// if (!jQuery.isEmptyObject(f_data)){
 	    	userFriendsHash[obj.get("_id")] = obj;
-	    }
+	    // }
 	});
     }
 }
@@ -283,11 +282,20 @@ function updateCode(code){
 	codedata = code.data("grabdata");
 	code.text(codedata);
 	code.removeClass("btn-success").addClass("btn-inverse");
+	var request = $.ajax({
+		url: "/update_code_status",
+		type: "POST",
+		data: {code: codedata}
+	});
+	request.done(function(msg){
+		$("#"+codedata).delay("3000").fadeTo( "fast", 0.33 );
+		$("#"+codedata+" h3").delay("5000");
+	});
 }
 
 function showUserFeeds(obj){
 	user_id = obj.data("id");
-	$("#user_id_data").text(obj.data("id"));
+	$("#user_id_data").text(obj.data("name"));
 	$("#user_only_id .fui-cross-circle").show();
 	getFriendCouponData(user_id);
 }
