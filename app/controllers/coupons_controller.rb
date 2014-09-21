@@ -1,5 +1,6 @@
 class CouponsController < ApplicationController
   before_filter :check_credential
+  after_filter :send_coupon_notifications, :only => [:create]
 
   respond_to :html, :json
   # GET /coupons
@@ -19,7 +20,18 @@ class CouponsController < ApplicationController
       format.json { render json: @coupons, methods: [:user_name, :expire_text]}
     end
   end
-
+  
+  def send_coupon_notifications
+    @g = Koala::Facebook::API.new(Koala::Facebook::OAuth.new("179716845394813","bdfca7d1c57344d6deec30f95e70d8f0").get_app_access_token)
+    friends = Friend.where(user_id: current_user.facebook_uid).entries
+    
+    user_fb_ids = User.all.collect {|u| u.facebook_uid.to_s}
+    friends.each do |friend|
+      if user_fb_ids.include?(friend.friend_fb_id.to_s)
+        @g.put_connections(friend.friend_fb_id, "notifications", template: "Checkout the coupon sent by you from your friend", href: "http://localhost:3000")    
+      end  
+    end
+  end  
   # GET /coupons/1
   # GET /coupons/1.json
   def show

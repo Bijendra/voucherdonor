@@ -13,6 +13,7 @@ gem 'pry'
 # gem 'sqlite3'
 
 gem 'whenever', :require => false
+gem "heroku"
 
 
 # Gems used only for assets and not required

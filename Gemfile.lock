@@ -48,10 +48,20 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.39.5)
     execjs (2.0.2)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     hashie (2.0.5)
+    heroku (3.10.3)
+      heroku-api (~> 0.3.19)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.7)
+      rest-client (= 1.6.7)
+      rubyzip (= 0.9.9)
+    heroku-api (0.3.19)
+      excon (~> 0.38)
+      multi_json (~> 1.8)
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.9)
@@ -66,6 +76,8 @@ GEM
       addressable
       faraday
       multi_json
+    launchy (2.4.2)
+      addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -79,6 +91,7 @@ GEM
     moped (1.5.1)
     multi_json (1.10.1)
     multipart-post (1.2.0)
+    netrc (0.7.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -125,6 +138,9 @@ GEM
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rubyzip (0.9.9)
     sass (3.4.1)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -158,6 +174,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise (>= 2.1.2)
+  heroku
   jquery-rails
   koala
   mongoid (>= 3.0.3)

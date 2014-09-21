@@ -41,7 +41,7 @@ class Coupon
     Coupon.all.each do |coupon|
     #   coupon.expires
       if (Date.today + 1).strftime("%Y-%m-%d") > coupon.expire_at.strftime("%Y-%m-%d")
-        @g.put_connections(coupon.user.facebook_uid, "notifications", template: "Checkout your friends discount coupon ", href: "http://localhost:3000")    
+        @g.put_connections(coupon.user.facebook_uid, "notifications", template: "Checkout your friends discount coupon about to expire", href: "http://localhost:3000")    
       end  
     end
   end  
