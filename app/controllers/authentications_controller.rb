@@ -10,6 +10,12 @@ class AuthenticationsController < ApplicationController
     end
   end
   
+  def accept_subscriptions
+  end
+  
+  def push_subscriptions
+  end
+
   def create_social_auth
     omniauth = request.env["omniauth.auth"]
     authentication = nil
@@ -50,7 +56,7 @@ class AuthenticationsController < ApplicationController
       friends = friends.to_a if friends.present?
 
       friends.each do |friend|
-        Friend.find_or_create_by(friend_fb_id: friend["id"], user_id: omniauth['uid'], status: Friend::STATUS_NAMES[0])
+        Friend.find_or_create_by(name: friend["name"],friend_fb_id: friend["id"], user_id: omniauth['uid'], status: Friend::STATUS_NAMES[0])
       end  
       user = Authentication.assign_social_data_to_user(user, omniauth, true)
       if(user.save)
