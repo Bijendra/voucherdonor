@@ -165,7 +165,7 @@ function getFriendCouponData(user_id){
     if (coupons.length > 0){
 	var inner_html = "";
 	var html = "";
-	for(var cpn=1;cpn <= coupons.length; cpn++){
+	for(var cpn=0;cpn < coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null && couponObj.get("fb_id") == user_id){
 		    var date = getDate(couponObj.get("expire_at"));
@@ -187,7 +187,7 @@ function getTypeCouponData(type){
     if (coupons.length > 0){
 	var inner_html = "";
 	var html = "";
-	for(var cpn=1;cpn <= coupons.length; cpn++){
+	for(var cpn=0;cpn < coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null && couponObj.get("coupon_vendor") == type){
 		    var date = getDate(couponObj.get("expire_at"));
