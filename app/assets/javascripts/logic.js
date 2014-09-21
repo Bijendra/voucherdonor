@@ -9,6 +9,8 @@ var userCoupons;
 var userFriends;
 var userCouponsHash = {};
 var userFriendsHash = {};
+var scrollAvailable = {};
+var scrollUsed = {};
 
 var Coupon = Backbone.Model.extend({
     url: function() {
@@ -86,10 +88,16 @@ var load = function() {
 
 function updateCoupons() {
     if(userCoupons.length > 0) {
-	userCouponsHash = {};
-	userCoupons.each(function(obj) {
-	    userCouponsHash[obj.get("_id")] = obj;
-	});
+		userCouponsHash = {};
+		userUsedCouponsHash = {};
+		userCoupons.each(function(obj) {
+			// console.log(obj.get("status"));
+		    if(obj.get("status") == 0){
+		    	userCouponsHash[obj.get("_id")] = obj;	
+		    } else {
+		    	userUsedCouponsHash[obj.get("_id")] = obj;	
+		    }	    
+		});
     }
 }
 
@@ -109,10 +117,10 @@ function updateFriends() {
     if(userFriends.length > 0) {
 	userFriendsHash = {};
 	userFriends.each(function(obj) {
-		f_data  = getFriendsCoupons(obj.get("friend_fb_id"));
-		// if (!jQuery.isEmptyObject(f_data)){
+	    f_data = getFriendsCoupons(obj.get("friend_fb_id"));
+	    if(!jQuery.isEmptyObject(f_data)){
 	    	userFriendsHash[obj.get("_id")] = obj;
-	    // }
+	    }
 	});
     }
 }
@@ -139,11 +147,11 @@ function prepareCouponsView() {
     if (coupons.length > 0){
 	var inner_html = "";
 	var html = "";
-	for(var cpn=1;cpn <= coupons.length; cpn++){
+	for(var cpn=0;cpn < coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null){
 	    var date = getDate(couponObj.get("expire_at"));
-		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id"), user_name: couponObj.get("user_name")}
 		inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
 	}
@@ -151,9 +159,36 @@ function prepareCouponsView() {
 	html = _.template($("#coupon_display").html(), variable)		
     }
     ele("coupon-code-feed").innerHTML = html;
-    new GridScrollFx( document.getElementById( 'grid' ), {
-	viewportFactor : 0.4
-    } );    
+    // if (!jQuery.isEmptyObject(scrollAvailable)){
+	    scrollAvailable = new GridScrollFx( document.getElementById( 'grid' ), {
+			viewportFactor : 0.4
+		} );    
+	// }
+}
+
+function prepareUsedCouponsView(){
+	var coupons = get_hash_keys(userUsedCouponsHash);
+    var html = "";
+    if (coupons.length > 0){
+	var inner_html = "";
+	var html = "";
+	for(var cpn=0;cpn < coupons.length; cpn++){
+	    var couponObj = userUsedCouponsHash[coupons[cpn]];
+	    if (couponObj != null){
+	    var date = getDate(couponObj.get("expire_at"));
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+		inner_html += _.template($("#individual_used_coupon").html(), variable);		    
+	    }
+	}
+	variable = {html: inner_html}
+	html = _.template($("#coupon_used_display").html(), variable)		
+    }
+    ele("coupon-used-code-feed").innerHTML = html;
+    // if (!jQuery.isEmptyObject(scrollUsed)){
+	    scrollUsed = new GridScrollFx( document.getElementById( 'grid_used' ), {
+			viewportFactor : 0.4
+		} );  
+	// }
 }
 
 function getDate(date){
@@ -161,15 +196,15 @@ function getDate(date){
 }
 
 function getFriendCouponData(user_id){
-	var coupons = get_hash_keys(userCouponsHash);
+    var coupons = get_hash_keys(userCouponsHash);
     if (coupons.length > 0){
 	var inner_html = "";
 	var html = "";
-	for(var cpn=1;cpn <= coupons.length; cpn++){
+	for(var cpn=0;cpn < coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null && couponObj.get("fb_id") == user_id){
 		    var date = getDate(couponObj.get("expire_at"));
-			var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id"), user_name: couponObj.get("user_name")}
 			inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
 	}
@@ -187,11 +222,11 @@ function getTypeCouponData(type){
     if (coupons.length > 0){
 	var inner_html = "";
 	var html = "";
-	for(var cpn=1;cpn <= coupons.length; cpn++){
+	for(var cpn=0;cpn < coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null && couponObj.get("coupon_vendor") == type){
 		    var date = getDate(couponObj.get("expire_at"));
-			var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id"), user_name: couponObj.get("user_name")}
 			inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
 	}
@@ -280,19 +315,21 @@ function addNewCoupon() {
     }
 }
 
-function updateCode(code){
-	codedata = code.data("grabdata");
-	code.text(codedata);
-	code.removeClass("btn-success").addClass("btn-inverse");
-	var request = $.ajax({
-		url: "/update_code_status",
-		type: "POST",
-		data: {code: codedata}
-	});
-	request.done(function(msg){
-		$("#"+codedata).delay("3000").fadeTo( "fast", 0.33 );
-		$("#"+codedata+" h3").delay("5000");
-	});
+function updateCode(code, id){
+    codedata = code.data("grabdata");
+    code.text(codedata);    
+    var coupon = userCouponsHash[id];
+    console.log(id);
+    code.removeClass("btn-success").addClass("btn-inverse");
+    coupon.set({status: -100});
+    coupon.save({}, {
+	success: function(model, response) {
+	    $("#"+codedata).delay("3000").fadeTo( "fast", 0.33 );
+	    $("#"+codedata+" h3").delay("5000");	    
+	}, 
+	error: function(response) {
+	}
+    })
 }
 
 function showUserFeeds(obj){
@@ -313,4 +350,20 @@ function addTypeFilter(type, obj){
 	getTypeCouponData(type);
 	$(".coupon-type").removeClass("btn-info").addClass("btn-inverse");
 	obj.removeClass("btn-inverse").addClass("btn-info");
+}
+
+function showAvailableCoupons(){
+	$(".coupon-display").hide();
+	$("#show_active").addClass("active");
+	$("#show_inactive").removeClass("active");
+	$("#coupon-code-feed").show();
+	prepareCouponsView();
+}
+
+function showUsedCoupons(){
+	$(".coupon-display").hide();
+	$("#show_active").removeClass("active");
+	$("#show_inactive").addClass("active");
+	$("#coupon-used-code-feed").show();	
+	prepareUsedCouponsView();
 }

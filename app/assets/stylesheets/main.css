@@ -215,7 +215,7 @@
     z-index: 10;
 }
 
-#grid p{
+.grid p{
     position: absolute;
     top: 10%;
     text-align: center;

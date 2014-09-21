@@ -37,7 +37,7 @@ chrome.cookies.get({ url: 'http://localhost:3000/', name: 'vd' },
 				       if((feeds != null) && (feeds.length > 0)) {
 					   for(var i=0;i<feeds.length;i++) {
 					       var feed = feeds[i];
-					       html += feed["user_name"]+"'s coupon for "+vendor[feed["coupon_vendor"]]+" expires at "+feed["expire_text"]+", <a href=''>Grab it now</a>"
+					       html += feed["user_name"]+"'s coupon for "+vendor[feed["coupon_vendor"]]+" expires at "+feed["expire_text"]+", <a target='_blank' href='http://localhost:3000/coupons/"+feed["_id"]+"'>Grab it now</a><br>"
 					   }
 				       }
 				       if(html.length == 0) {

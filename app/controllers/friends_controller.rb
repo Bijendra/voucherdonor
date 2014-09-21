@@ -5,8 +5,12 @@ class FriendsController < ApplicationController
   # GET /friends
   # GET /friends.json
   def index
-    @friends = Friend.all
-
+    if(params[:uid].present?) 
+      user = User.where(id: params[:uid]).first
+      @friends = Friend.where(user_id: user.facebook_uid).entries
+    else
+      @friends = Friend.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @friends }

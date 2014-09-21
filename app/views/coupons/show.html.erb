@@ -1,35 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @coupon.user_id %>
-</p>
-
-<p>
-  <b>Coupon vendor:</b>
-  <%= @coupon.coupon_vendor %>
-</p>
-
-<p>
-  <b>Expire at:</b>
-  <%= @coupon.expire_at %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @coupon.status %>
-</p>
-
-<p>
-  <b>Used by:</b>
-  <%= @coupon.used_by %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @coupon.type %>
-</p>
+<div class="sp50"></div>
+<center>
+  <div style="width:700px;height:300px;background:#2c3e50">
+    <div class="sp30"></div>
+    <h1 class="lead" style="color:#ffffff;font-size:80px;"><%= @coupon.code %></h1>
+    <h2 class="lead" style="color:#ffffff;">for <%= Coupon::VENDOR_NAMES[@coupon.coupon_vendor.to_i] %>, by <%= @coupon.user.full_name %></h3>
+  </div>
+  <div class="sp50"></div>
+  <h1 class="lead" style="font-size:60px;">be a #VoucherDonor</h1>  
+</center>
 
 
-<%= link_to 'Edit', edit_coupon_path(@coupon) %> |
-<%= link_to 'Back', coupons_path %>
+

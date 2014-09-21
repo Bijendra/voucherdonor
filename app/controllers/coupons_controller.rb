@@ -7,14 +7,16 @@ class CouponsController < ApplicationController
   # GET /coupons.json
   def index    
     if params[:uid].present? && params[:vid].present?
-      friends_list = Friend.where(user_id: params[:uid]).map(&:friend_fb_id)
-      friends_list = friends_list + [params[:uid]]
-      @coupons = Coupon.where(:fb_id.in => friends_list, coupon_vendor: params[:vid], status: Coupon::COUPON_ACTIVE).all
+      user = User.where(id: params[:uid]).first
+      friends_list = Friend.where(user_id: user.facebook_uid).map(&:friend_fb_id)
+      friends_list = friends_list + [user.facebook_uid]
+      @coupons = Coupon.any_in(:fb_id => friends_list).where(:coupon_vendor => params[:vid]).where(:status => Coupon::COUPON_ACTIVE)
     else
-      friends_list = Friend.where(user_id: current_user.facebook_uid, status: Coupon::COUPON_ACTIVE).map(&:friend_fb_id) if current_user.present?
+      friends_list = Friend.where(user_id: current_user.facebook_uid).map(&:friend_fb_id) if current_user.present?
       friends_list = friends_list + [current_user.facebook_uid] if current_user.present?
-      @coupons = current_user.present? ? Coupon.where(:fb_id.in => friends_list).all : Coupon.all
+      @coupons = current_user.present? ? Coupon.any_in(:fb_id => friends_list) : Coupon.all
     end
+    @coupons = @coupons.sort{|a,b| a.expire_at <=> b.expire_at }
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @coupons, methods: [:user_name, :expire_text]}
@@ -36,7 +38,10 @@ class CouponsController < ApplicationController
   # GET /coupons/1.json
   def show
     @coupon = Coupon.find(params[:id])
-
+    if(params[:grab].present?)
+      @coupon.status = Coupon::COUPON_INACTIVE
+      @coupon.save
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @coupon }
@@ -64,7 +69,7 @@ class CouponsController < ApplicationController
     @coupon = current_user.coupons.new(params[:coupon])
     @coupon.fb_id = current_user.facebook_uid
     @coupon.user_name = current_user.full_name
-    @coupon.expire_text = @coupon.expire_at.to_formatted_s(:short)
+    @coupon.expire_text = @coupon.expire_at.to_date.to_formatted_s(:short)
     respond_to do |format|
       if @coupon.save
         format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }
@@ -108,6 +113,7 @@ class CouponsController < ApplicationController
     if current_user.present? && params[:code].present?
       coupon = Coupon.where(code: params[:code]).first
       coupon.status = Coupon::COUPON_INACTIVE if coupon.present?
+      coupon.used_by = current_user.full_name if current_user.present?
       coupon.save if coupon.present?
       render :json => {"success"=>true}
     else      

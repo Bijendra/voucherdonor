@@ -6,18 +6,36 @@
 </script>
 
 <script type="text/teamplate" id="individual_coupon">
-	<li id="{{= code}}" class="coupon {{= user_id }} {{= vendor }}"><a href="javascript:void(0);" id="{{= id}}" ><img src="/assets/plain.png" alt="{{= id}}">
-		<p>
-			Grab your coupon code from <label>{{= vendor }} </label> and use it before <time class="timeago" datetime="{{= exp_at }}">{{= exp_at }}</time>		
-		</p>
-		<h3><span class="btn btn-success" onclick="updateCode($(this));" data-grabdata="{{= code }}">Grab it Now</span></h3>
-	</a></li>
+  <li id="{{= code}}" class="coupon {{= user_id }} {{= vendor }}"><a href="javascript:void(0);" id="{{= id}}" ><img src="/assets/plain.png" alt="{{= id}}">
+      <p>
+	Grab your coupon code for <label>{{= vendor }} </label> and use it before <time class="timeago" datetime="{{= exp_at }}">{{= exp_at }}</time>	
+	<br><span class="lead" style="font-size:18px;">shared by {{= user_name }}</span>	
+      </p>
+      <h3><span class="btn btn-success" onclick="updateCode($(this), '{{= id}}');" data-grabdata="{{= code }}">Grab it Now</span></h3>
+  </a></li>
+</script>
+
+<script type="text/teamplate" id="individual_used_coupon">
+  <li id="{{= code}}" class="coupon {{= user_id }} {{= vendor }}"><a href="javascript:void(0);" id="{{= id}}" ><img src="/assets/plain.png" alt="{{= id}}">
+      <p>
+		This coupon code from <label>{{= vendor }} </label> used by you.
+      </p>
+      <h3>{{= code }}</h3>
+  </a></li>
+</script>
+
+<script type="text/teamplate" id="coupon_used_display">
+  <section class="grid-wrap">
+    <ul class="grid swipe-right" id="grid_used">
+      {{= html }}
+    </ul>
+  </section>
 </script>
 
 <script type="text/teamplate" id="coupon_display">
-	<section class="grid-wrap">
-		<ul class="grid swipe-right" id="grid">
-			{{= html }}
-		</ul>
-	</section>
+  <section class="grid-wrap">
+    <ul class="grid swipe-right" id="grid">
+      {{= html }}
+    </ul>
+  </section>
 </script>
