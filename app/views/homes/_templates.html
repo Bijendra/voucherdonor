@@ -8,7 +8,8 @@
 <script type="text/teamplate" id="individual_coupon">
   <li id="{{= code}}" class="coupon {{= user_id }} {{= vendor }}"><a href="javascript:void(0);" id="{{= id}}" ><img src="/assets/plain.png" alt="{{= id}}">
       <p>
-	Grab your coupon code from <label>{{= vendor }} </label> and use it before <time class="timeago" datetime="{{= exp_at }}">{{= exp_at }}</time>		
+	Grab your coupon code for <label>{{= vendor }} </label> and use it before <time class="timeago" datetime="{{= exp_at }}">{{= exp_at }}</time>	
+	<br><span class="lead" style="font-size:18px;">shared by {{= user_name }}</span>	
       </p>
       <h3><span class="btn btn-success" onclick="updateCode($(this), '{{= id}}');" data-grabdata="{{= code }}">Grab it Now</span></h3>
   </a></li>
