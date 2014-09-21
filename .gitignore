@@ -38,6 +38,12 @@ test/unit/*
 *.rar
 *.tar
 *.zip
+
+tmp/**/*
+*.log
+dump/**/*
+test/functional/*
+test/unit/*
  
 # Logs and databases #
 ######################

@@ -192,22 +192,48 @@ function getVendorName(id) {
 
 function addNewCoupon() {
     var coupon = new Coupon();
-    coupon.set({
-	coupon_vendor: ele("vendor-id").value,
-	expire_at: ele("coupon-exp-date").value,
-	code: ele("coupon-code").value
-    });    
-    coupon.save({}, {
-	success: function(model, response) {
-	    ele("coupon-exp-date").value = "";
-	    ele("coupon-code").value = "";
-	    userCoupons.push(model);
-	    updateCoupons();
-	    prepareCouponsView();
-	}, 
-	error: function(response) {
-	}
-    });
+    var vendor_id = ele("vendor-id").value;
+    var expire_at = ele("coupon-exp-date").value;
+    var code = ele("coupon-code").value;    
+    var error = false;
+    if((vendor_id == null) || (vendor_id.length == 0)) {
+	error = true;
+	$("#coupVendor").removeClass("btn-primary");
+	$("#coupVendor").addClass("btn-danger");
+    } else {
+	$("#coupVendor").removeClass("btn-danger");
+	$("#coupVendor").addClass("btn-primary");
+    }
+    if((code == null) || (code.length == 0)) {
+	error = true;
+	$("#coupon-code-div").addClass("has-error");
+    } else {
+	$("#coupon-code-div").removeClass("has-error");
+    }
+    if((expire_at == null) || (expire_at.length == 0)) {
+	error = true;
+	$("#coupon-exp-div").addClass("has-error");
+    } else {
+	$("#coupon-exp-div").removeClass("has-error");
+    }
+    if(!error) {
+	coupon.set({
+	    coupon_vendor: vendor_id,
+	    expire_at: expire_at,
+	    code: code
+	});    
+	coupon.save({}, {
+	    success: function(model, response) {
+		ele("coupon-exp-date").value = "";
+		ele("coupon-code").value = "";
+		userCoupons.push(model);
+		updateCoupons();
+		prepareCouponsView();
+	    }, 
+	    error: function(response) {
+	    }
+	});
+    }
 }
 
 function updateCode(code){
