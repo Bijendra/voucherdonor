@@ -6,8 +6,8 @@ class CouponsController < ApplicationController
   # GET /coupons.json
   def index    
     if params[:uid].present? && params[:vid].present?
-      friends_list = Friend.where(user_id: params[:uid]).map(&:friend_fb_id)
       user = User.where(id: params[:uid]).first
+      friends_list = Friend.where(user_id: user.facebook_uid).map(&:friend_fb_id)
       friends_list = friends_list + [user.facebook_uid]
       @coupons = Coupon.any_in(:fb_id => friends_list).where(:coupon_vendor => params[:vid]).where(:status => Coupon::COUPON_ACTIVE)
     else
@@ -26,8 +26,10 @@ class CouponsController < ApplicationController
   # GET /coupons/1.json
   def show
     @coupon = Coupon.find(params[:id])
-    @coupon.status = Coupon::COUPON_INACTIVE
-    @coupon.save
+    if(params[:grab].present?)
+      @coupon.status = Coupon::COUPON_INACTIVE
+      @coupon.save
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @coupon }

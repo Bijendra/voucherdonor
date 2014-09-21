@@ -161,7 +161,7 @@ function getDate(date){
 }
 
 function getFriendCouponData(user_id){
-	var coupons = get_hash_keys(userCouponsHash);
+    var coupons = get_hash_keys(userCouponsHash);
     if (coupons.length > 0){
 	var inner_html = "";
 	var html = "";
