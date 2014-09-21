@@ -9,6 +9,7 @@ class Coupon
   field :used_by, type: String
   field :type, type: Integer
   field :code, type: String
+  field :fb_id, type: String
 
   belongs_to :user
   

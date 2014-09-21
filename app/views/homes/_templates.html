@@ -1,14 +1,17 @@
 <script type="text/template" id="userIcon">
-  <div class="friendIcon" onmouseover="ele_show('{{= id }}-del');" onmouseout="ele_hide('{{= id }}-del');">
+  <div class="friendIcon" data-id="{{= user_id }}" onclick="showUserFeeds($(this))" onmouseover="ele_show('{{= id }}-del');" onmouseout="ele_hide('{{= id }}-del');">
     <span id="{{= id }}-del" class="fui-cross-circle" style="display:none;" onclick="removeFriend('{{= id }}')"></span>
     <img src="{{= pic_url }}"/>
   </div>
 </script>
 
 <script type="text/teamplate" id="individual_coupon">
-	<li><a href="javascript:void(0);" id="{{= id}}" ><img src="/assets/plain.png" alt="{{= id}}"><p>
-		Grab your coupon code from {{= vendor }} and use it before <time class="timeago" datetime="{{= exp_at }}">{{= exp_at }}</time>
-	</p><h3>{{= vendor }} - {{= code }}</h3></a></li>
+	<li class="coupon {{= user_id }} {{= vendor }}"><a href="javascript:void(0);" id="{{= id}}" ><img src="/assets/plain.png" alt="{{= id}}">
+		<p>
+			Grab your coupon code from <label>{{= vendor }} </label> and use it before <time class="timeago" datetime="{{= exp_at }}">{{= exp_at }}</time>		
+		</p>
+		<h3><span class="btn btn-success" onclick="updateCode($(this));" data-grabdata="{{= code }}">Grab it Now</span></h3>
+	</a></li>
 </script>
 
 <script type="text/teamplate" id="coupon_display">
