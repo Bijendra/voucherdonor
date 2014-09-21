@@ -237,6 +237,7 @@ function addNewCoupon() {
     var vendor_id = ele("vendor-id").value;
     var expire_at = ele("coupon-exp-date").value;
     var code = ele("coupon-code").value;    
+    var desc = ele("coupon-desc").value;    
     var error = false;
     if((vendor_id == null) || (vendor_id.length == 0)) {
 	error = true;
@@ -262,7 +263,8 @@ function addNewCoupon() {
 	coupon.set({
 	    coupon_vendor: vendor_id,
 	    expire_at: expire_at,
-	    code: code
+	    code: code,
+	    desc: desc
 	});    
 	coupon.save({}, {
 	    success: function(model, response) {

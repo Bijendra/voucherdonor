@@ -8,6 +8,7 @@ class Coupon
   field :status, type: Integer, default: 0
   field :used_by, type: String
   field :type, type: Integer
+  field :desc, type: String
   field :code, type: String
   field :user_name, type: String
   field :expire_text, type: String
