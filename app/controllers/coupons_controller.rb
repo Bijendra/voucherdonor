@@ -1,4 +1,6 @@
 class CouponsController < ApplicationController
+  before_filter :check_credential
+
   respond_to :html, :json
   # GET /coupons
   # GET /coupons.json
@@ -25,9 +27,7 @@ class CouponsController < ApplicationController
   # GET /coupons/new
   # GET /coupons/new.json
   def new
-    user = User.last
-    @coupon = user.coupons.new
-
+    @coupon = current_user.coupons.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @coupon }
@@ -42,8 +42,8 @@ class CouponsController < ApplicationController
   # POST /coupons
   # POST /coupons.json
   def create
-    user = User.last
-    @coupon = user.coupons.new(params[:coupon])
+    @coupon = current_user.coupons.new(params[:coupon])
+    @coupon.fb_id = current_user.facebook_uid
 
     respond_to do |format|
       if @coupon.save

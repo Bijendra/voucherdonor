@@ -1,4 +1,6 @@
 class FriendsController < ApplicationController
+  before_filter :check_credential
+
   respond_to :html, :json
   # GET /friends
   # GET /friends.json
