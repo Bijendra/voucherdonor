@@ -9,6 +9,8 @@ class Coupon
   field :used_by, type: String
   field :type, type: Integer
   field :code, type: String
+  field :user_name, type: String
+  field :expire_text, type: String
 
   belongs_to :user
   

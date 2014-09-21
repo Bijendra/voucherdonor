@@ -6,10 +6,9 @@ class CouponsController < ApplicationController
   # GET /coupons.json
   def index
     @coupons = Coupon.all
-
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @coupons }
+      format.json { render json: @coupons, methods: [:user_name, :expire_text]}
     end
   end
 
@@ -45,8 +44,7 @@ class CouponsController < ApplicationController
   # POST /coupons.json
   def create
     user = User.last
-    @coupon = user.coupons.new(params[:coupon])
-
+    @coupon = user.coupons.new(params[:coupon])    
     respond_to do |format|
       if @coupon.save
         format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }

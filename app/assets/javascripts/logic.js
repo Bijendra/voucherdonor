@@ -120,6 +120,7 @@ function prepareFriendsView() {
 
 function prepareCouponsView() {
     var coupons = get_hash_keys(userCouponsHash);
+    var html = "";
     if (coupons.length > 0){
 	var inner_html = "";
 	for(var cpn=1;cpn <= coupons.length; cpn++){
