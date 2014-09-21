@@ -4,8 +4,16 @@ class CouponsController < ApplicationController
   respond_to :html, :json
   # GET /coupons
   # GET /coupons.json
-  def index
-    @coupons = Coupon.all
+  def index    
+    if params[:uid].present? && params[:vid].present?
+      friends_list = Friend.where(user_id: params[:uid]).map(&:friend_fb_id)
+      friends_list = friends_list + [params[:uid]]
+      @coupons = Coupon.where(:fb_id.in => friends_list, coupon_vendor: params[:vid]).all
+    else
+      friends_list = Friend.where(user_id: current_user.facebook_uid).map(&:friend_fb_id) if current_user.present?
+      friends_list = friends_list + [current_user.facebook_uid] if current_user.present?
+      @coupons = current_user.present? ? Coupon.where(:fb_id.in => friends_list).all : Coupon.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @coupons, methods: [:user_name, :expire_text]}

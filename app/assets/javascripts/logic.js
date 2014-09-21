@@ -126,7 +126,7 @@ function prepareFriendsView() {
 	    var friendObj = userFriendsHash[friendsIds[i]];
 	    if((friendsIds != null) && (friendObj != null)) {
 		var pic_url = "http://graph.facebook.com/"+friendObj.get("friend_fb_id")+"/picture?width=125&height=125";
-		var variable = { id : friendObj.get("_id"), pic_url : pic_url, user_id: friendObj.get("friend_fb_id") };
+		var variable = { id : friendObj.get("_id"), pic_url : pic_url, user_id: friendObj.get("friend_fb_id"), name: friendObj.get("name") };
 		html += _.template($("#userIcon").html(), variable);		    
 	    }
 	}
@@ -287,7 +287,7 @@ function updateCode(code){
 
 function showUserFeeds(obj){
 	user_id = obj.data("id");
-	$("#user_id_data").text(user_id);
+	$("#user_id_data").text(obj.data("id"));
 	$("#user_only_id .fui-cross-circle").show();
 	getFriendCouponData(user_id);
 }
