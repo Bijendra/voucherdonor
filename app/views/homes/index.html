@@ -11,12 +11,18 @@
 <div id="loading" style="display:none;">&nbsp;</div>
 <div class="main">
   <div class="sp20"></div>
-  <h1 class="lead" style="margin:0px;"><%= current_user.full_name %>
-  <label id="user_only_id" data-alluser="All User Coupons">All User Coupons</label>  
-    <div class="pull-right">      
-      <a rel="nofollow" data-method="delete" href="/users/sign_out"><span class="fui-power"></span></a>
-    </div>
-  </h1>
+  <h1 class="lead" style="margin:0px; display: inline-block;"><%= current_user.full_name %></h1>
+  <label class="btn btn-info" id="user_only_id" style="margin-left: 18%;"><span id="user_id_data" onclick="removeFilter();">All Coupons</span><span class="fui-cross-circle" style="display: none;" onclick="removeFilter();"></span></label>
+
+  <label class="btn btn-info coupon-type" style="margin-left: 10px;" onclick="addTypeFilter(10, $(this));">Myntra<span class="fui-cross-circle" style="display: none;" ></span></label>
+  <label class="btn btn-info coupon-type" style="margin-left: 10px;" onclick="addTypeFilter(20, $(this));">Snapdeal<span class="fui-cross-circle" style="display: none;" ></span></label>
+  <label class="btn btn-info coupon-type" style="margin-left: 10px;" onclick="addTypeFilter(30, $(this));">Cafe Coffee Day<span class="fui-cross-circle" style="display: none;" ></span></label>
+  <label class="btn btn-info coupon-type" style="margin-left: 10px;" onclick="addTypeFilter(40, $(this));">KFC<span class="fui-cross-circle" style="display: none;"></span></label>
+
+  <div class="pull-right">      
+    <a rel="nofollow" data-method="delete" href="/users/sign_out"><span class="fui-power"></span></a>
+  </div>
+  
   <hr style="margin-bottom:0px;">
   <div class="fill-width">    
     <div id="feed-area">
