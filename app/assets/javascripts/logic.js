@@ -110,7 +110,7 @@ function prepareFriendsView() {
 	    var friendObj = userFriendsHash[friendsIds[i]];
 	    if((friendsIds != null) && (friendObj != null)) {
 		var pic_url = "http://graph.facebook.com/"+friendObj.get("friend_fb_id")+"/picture?width=125&height=125";
-		var variable = { id : friendObj.get("_id"), pic_url : pic_url };
+		var variable = { id : friendObj.get("_id"), pic_url : pic_url, user_id: friendObj.get("friend_fb_id") };
 		html += _.template($("#userIcon").html(), variable);		    
 	    }
 	}
@@ -123,11 +123,12 @@ function prepareCouponsView() {
     var html = "";
     if (coupons.length > 0){
 	var inner_html = "";
+	var html = "";
 	for(var cpn=1;cpn <= coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null){
 	    var date = $.timeago(couponObj.get("expire_at"))
-		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status")}
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
 		inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
 	}
@@ -138,6 +139,28 @@ function prepareCouponsView() {
     new GridScrollFx( document.getElementById( 'grid' ), {
 	viewportFactor : 0.4
     } );    
+}
+
+function getFriendCouponData(user_id){
+	var coupons = get_hash_keys(userCouponsHash);
+    if (coupons.length > 0){
+	var inner_html = "";
+	var html = "";
+	for(var cpn=1;cpn <= coupons.length; cpn++){
+	    var couponObj = userCouponsHash[coupons[cpn]];
+	    if (couponObj != null && couponObj.get("fb_id") == user_id){
+		    var date = $.timeago(couponObj.get("expire_at"))
+			var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+			inner_html += _.template($("#individual_coupon").html(), variable);		    
+	    }
+	}
+	variable = {html: inner_html}
+	html = _.template($("#coupon_display").html(), variable)		
+    }
+    ele("coupon-code-feed").innerHTML = html;
+    new GridScrollFx( document.getElementById( 'grid' ), {
+	viewportFactor : 0.4
+    } ); 
 }
 
 function removeFriend(id) {
@@ -212,4 +235,16 @@ function addNewCoupon() {
 	    }
 	});
     }
+}
+
+function updateCode(code){
+	codedata = code.data("grabdata");
+	code.text(codedata);
+	code.removeClass("btn-success").addClass("btn-inverse");
+}
+
+function showUserFeeds(obj){
+	user_id = obj.data("id");
+	$("#user_only_id").text(user_id);
+	getFriendCouponData(user_id);
 }

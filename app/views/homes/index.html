@@ -12,6 +12,7 @@
 <div class="main">
   <div class="sp20"></div>
   <h1 class="lead" style="margin:0px;"><%= current_user.full_name %>
+  <label id="user_only_id" data-alluser="All User Coupons">All User Coupons</label>  
     <div class="pull-right">      
       <a rel="nofollow" data-method="delete" href="/users/sign_out"><span class="fui-power"></span></a>
     </div>
@@ -58,7 +59,8 @@
   load();
   $("#coupon-exp-date").datepicker({
   numberOfMonths: 2,
-  minDate: 0
+  minDate: 0,
+  dateFormat: "yy-mm-dd",
   });
   createCookie("vd", "<%= current_user.id %>", 10);
   </script>
