@@ -7,12 +7,13 @@ class CouponsController < ApplicationController
   def index    
     if params[:uid].present? && params[:vid].present?
       friends_list = Friend.where(user_id: params[:uid]).map(&:friend_fb_id)
-      friends_list = friends_list + [params[:uid]]
-      @coupons = Coupon.where(:fb_id.in => friends_list, coupon_vendor: params[:vid], status: Coupon::COUPON_ACTIVE).all
+      user = User.where(id: params[:uid]).first
+      friends_list = friends_list + [user.facebook_uid]
+      @coupons = Coupon.any_in(:fb_id => friends_list).where(:coupon_vendor => params[:vid]).where(:status => Coupon::COUPON_ACTIVE)
     else
-      friends_list = Friend.where(user_id: current_user.facebook_uid, status: Coupon::COUPON_ACTIVE).map(&:friend_fb_id) if current_user.present?
+      friends_list = Friend.where(user_id: current_user.facebook_uid).map(&:friend_fb_id) if current_user.present?
       friends_list = friends_list + [current_user.facebook_uid] if current_user.present?
-      @coupons = current_user.present? ? Coupon.where(:fb_id.in => friends_list).all : Coupon.all
+      @coupons = current_user.present? ? Coupon.any_in(:fb_id => friends_list).where(status: Coupon::COUPON_ACTIVE) : Coupon.all
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -52,7 +53,7 @@ class CouponsController < ApplicationController
     @coupon = current_user.coupons.new(params[:coupon])
     @coupon.fb_id = current_user.facebook_uid
     @coupon.user_name = current_user.full_name
-    @coupon.expire_text = @coupon.expire_at.to_formatted_s(:short)
+    @coupon.expire_text = @coupon.expire_at.to_date.to_formatted_s(:short)
     respond_to do |format|
       if @coupon.save
         format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }

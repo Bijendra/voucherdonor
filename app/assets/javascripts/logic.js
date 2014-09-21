@@ -109,10 +109,10 @@ function updateFriends() {
     if(userFriends.length > 0) {
 	userFriendsHash = {};
 	userFriends.each(function(obj) {
-		f_data  = getFriendsCoupons(obj.get("friend_fb_id"));
-		// if (!jQuery.isEmptyObject(f_data)){
+	    f_data  = getFriendsCoupons(obj.get("friend_fb_id"));
+	    if(!jQuery.isEmptyObject(f_data)){
 	    	userFriendsHash[obj.get("_id")] = obj;
-	    // }
+	    }
 	});
     }
 }
@@ -139,7 +139,7 @@ function prepareCouponsView() {
     if (coupons.length > 0){
 	var inner_html = "";
 	var html = "";
-	for(var cpn=1;cpn <= coupons.length; cpn++){
+	for(var cpn=0;cpn < coupons.length; cpn++){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null){
 	    var date = getDate(couponObj.get("expire_at"));
@@ -280,19 +280,21 @@ function addNewCoupon() {
     }
 }
 
-function updateCode(code){
-	codedata = code.data("grabdata");
-	code.text(codedata);
-	code.removeClass("btn-success").addClass("btn-inverse");
-	var request = $.ajax({
-		url: "/update_code_status",
-		type: "POST",
-		data: {code: codedata}
-	});
-	request.done(function(msg){
-		$("#"+codedata).delay("3000").fadeTo( "fast", 0.33 );
-		$("#"+codedata+" h3").delay("5000");
-	});
+function updateCode(code, id){
+    codedata = code.data("grabdata");
+    code.text(codedata);    
+    var coupon = userCouponsHash[id];
+    console.log(id);
+    code.removeClass("btn-success").addClass("btn-inverse");
+    coupon.set({status: -100});
+    coupon.save({}, {
+	success: function(model, response) {
+	    $("#"+codedata).delay("3000").fadeTo( "fast", 0.33 );
+	    $("#"+codedata+" h3").delay("5000");	    
+	}, 
+	error: function(response) {
+	}
+    })
 }
 
 function showUserFeeds(obj){
