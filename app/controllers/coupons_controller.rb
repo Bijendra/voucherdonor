@@ -15,6 +15,7 @@ class CouponsController < ApplicationController
       friends_list = friends_list + [current_user.facebook_uid] if current_user.present?
       @coupons = current_user.present? ? Coupon.any_in(:fb_id => friends_list) : Coupon.all
     end
+    @coupons = @coupons.sort{|a,b| a.expire_at <=> b.expire_at }
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @coupons, methods: [:user_name, :expire_text]}
@@ -25,7 +26,8 @@ class CouponsController < ApplicationController
   # GET /coupons/1.json
   def show
     @coupon = Coupon.find(params[:id])
-
+    @coupon.status = Coupon::COUPON_INACTIVE
+    @coupon.save
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @coupon }

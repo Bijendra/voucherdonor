@@ -151,7 +151,7 @@ function prepareCouponsView() {
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null){
 	    var date = getDate(couponObj.get("expire_at"));
-		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id"), user_name: couponObj.get("user_name")}
 		inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
 	}
@@ -204,7 +204,7 @@ function getFriendCouponData(user_id){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null && couponObj.get("fb_id") == user_id){
 		    var date = getDate(couponObj.get("expire_at"));
-			var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id"), user_name: couponObj.get("user_name")}
 			inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
 	}
@@ -226,7 +226,7 @@ function getTypeCouponData(type){
 	    var couponObj = userCouponsHash[coupons[cpn]];
 	    if (couponObj != null && couponObj.get("coupon_vendor") == type){
 		    var date = getDate(couponObj.get("expire_at"));
-			var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id")}
+		var variable = {id: couponObj.get("_id"), vendor: getVendorName(couponObj.get("coupon_vendor")), code: couponObj.get("code"), exp_at: date, status: couponObj.get("status"), user_id: couponObj.get("fb_id"), user_name: couponObj.get("user_name")}
 			inner_html += _.template($("#individual_coupon").html(), variable);		    
 	    }
 	}
