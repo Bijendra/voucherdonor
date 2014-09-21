@@ -6,10 +6,9 @@ class CouponsController < ApplicationController
   # GET /coupons.json
   def index
     @coupons = Coupon.all
-
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @coupons }
+      format.json { render json: @coupons, methods: [:user_name, :expire_text]}
     end
   end
 
@@ -44,7 +43,8 @@ class CouponsController < ApplicationController
   def create
     @coupon = current_user.coupons.new(params[:coupon])
     @coupon.fb_id = current_user.facebook_uid
-
+    @coupon.user_name = current_user.full_name
+    @coupon.expire_text = @coupon.expire_at.to_formatted_s(:short)
     respond_to do |format|
       if @coupon.save
         format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }
