@@ -1,18 +1,15 @@
-Voucherdonor::Application.routes.draw do
-  
+Voucherdonor::Application.routes.draw do 
   devise_for :users
-
   resources :friends
   resources :coupons
   resources :authentications
   resources :notifications
   root :to => "homes#index"
-
-  # match "/admin" => "", :as => :admin
-  
+  # match "/admin" => "", :as => :admin  
   match '/auth/:provider' => 'authentications#create_social_auth', :as => "social_auth"
   match '/auth/failure' => 'authentications#third_party_auth'
   match '/auth/:provider/callback' => 'authentications#create_social_auth'
+  match '/how-it-work' => 'homes#about', :as => "about"
 
   devise_scope :user do
     get "/" => "devise/sessions#new"
@@ -21,15 +18,14 @@ Voucherdonor::Application.routes.draw do
   devise_scope :user do
     delete "/" => "devise/sessions#destroy"
   end
-
+  
   match "/post_login" => "homes#post_login", :as => "post_login"
   
   # Real time updates api
   match '/create_real_time_subscription' => 'notifications#register_realtime_updates'
   match '/callback_url_facebook' => 'notifications#callback_fb', :as => 'callback_fb'
   match '/test' => 'notifications#test'
-  match '/send_notification' => 'notifications#send_notification'
-
+  match '/send_notification' => 'notifications#send_notification'  
   match '/update_code_status' => 'coupons#update_status', :as => 'update_code_status'
 
   # The priority is based upon order of creation:
