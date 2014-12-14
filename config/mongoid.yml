@@ -66,10 +66,10 @@ development:
 
     # Ensure all times are UTC in the app side. (default: false)
     # use_utc: false
-test:
+production:
   sessions:
     default:
-      database: voucherdonor_test
+      database: voucherdonor_prod
       hosts:
         - localhost:27017
       options:

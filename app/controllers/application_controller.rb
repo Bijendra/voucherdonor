@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
    end
 
    def after_sign_up_path_for(resource)
-     "http://localhost:3000/"
+     root_path
+     # "http://localhost:3000/"
      # <- Path you want to redirect the user to after signup
    end 
 end

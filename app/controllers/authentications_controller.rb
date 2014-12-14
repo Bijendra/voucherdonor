@@ -3,7 +3,6 @@ class AuthenticationsController < ApplicationController
   # GET /authentications.json
   def index
     @authentications = Authentication.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @authentications }
@@ -69,6 +68,7 @@ class AuthenticationsController < ApplicationController
       end
     end
   end
+
   # GET /authentications/1
   # GET /authentications/1.json
   def show
