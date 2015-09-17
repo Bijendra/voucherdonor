@@ -9,7 +9,7 @@ Voucherdonor::Application.routes.draw do
   match '/auth/:provider' => 'authentications#create_social_auth', :as => "social_auth"
   match '/auth/failure' => 'authentications#third_party_auth'
   match '/auth/:provider/callback' => 'authentications#create_social_auth'
-  match '/how-it-work' => 'homes#about', :as => "about"
+  match '/how-it-works' => 'homes#about', :as => "about"
 
   devise_scope :user do
     get "/" => "devise/sessions#new"

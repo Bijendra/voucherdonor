@@ -221,3 +221,28 @@
     text-align: center;
     padding: 40px;
 }
+
+.about-heading {
+    text-align: center;
+    padding: 20px;
+    top: 5%;
+}
+
+.margin-5per {
+    margin: 5%;
+}
+
+mark.red {
+    color:#ff0000;
+    background: none;
+}
+
+mark.blue {
+    color:#0000A0;
+    background: none;
+}
+
+mark.green   {
+    color:#008000;
+    background: none;
+}
